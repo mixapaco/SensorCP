@@ -34,7 +34,16 @@ if($result)
 }
  
 mysqli_close($link);
+
+
+
 ?>
+
+<form action='GetAll.php' method='get'>
+<p>ID:<input type='text'  name='id' ></p>
+<input type=submit >
+</form>
+
      
 
 <?php include 'Footer.php'; ?>
