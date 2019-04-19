@@ -29,8 +29,8 @@ else
 if ( !empty($_POST["id"]) & !empty($_POST["value"]) & !empty($_POST["cdata"])) 
 {
   echo " Отримано id - ".$_POST["id"]."<br>";
- 	$id=$_POST["id"];
- 	$val=$_POST["value"];
+ 	$id=(int)($_POST["id"]);
+ 	$val=(int)($_POST["value"]);
  	//$cdate=date('Y-m-d');
  	$cdate=$_POST["cdata"];
  	echo $cdate;

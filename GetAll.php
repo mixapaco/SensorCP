@@ -15,8 +15,10 @@
 	$link = mysqli_connect($host, $user, $password, $database) 
     or die("Ошибка " . mysqli_error($link)); 
     $result = mysqli_query($link, $query) or die("Ошибка " . mysqli_error($link)); 
+    $data[]=array();
 if($result)
 {
+   
     $rows = mysqli_num_rows($result); 
      
     echo "<table><tr><th>Id запиту</th><th>Id Сенсора</th><th>К-сть</th><th>Дата</th></tr>";
@@ -28,20 +30,27 @@ if($result)
         echo "</tr>";
     }
     echo "</table>";
-     
+      
+    foreach ($result as $row) {
+        $data[]=$row;
+    }
     
     mysqli_free_result($result);
 }
  
 mysqli_close($link);
 
-
+//print json_encode($data);
 
 ?>
 
-<form action='GetAll.php' method='get'>
+<div id="chart-conteiner">
+    <canvas id="mycanvas"></canvas>
+</div>
+
+<form action='' method='get'>
 <p>ID:<input type='text'  name='id' ></p>
-<input type=submit >
+<input type='submit' ">
 </form>
 
      
