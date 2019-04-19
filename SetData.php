@@ -9,6 +9,7 @@
 <form action='' method='post'>
 <p>ID:<input type='text'  name='id' ></p>
 <p>Value:<input type='text'  name='value' ></p>
+<p>Date:<input type='text'  name='cdata' ></p>
 <input type=submit >
 </form>
 
@@ -24,12 +25,13 @@ else
 	echo "conected<br>";
 }
 
-if ( !empty($_POST["id"]) & !empty($_POST["value"])) 
+if ( !empty($_POST["id"]) & !empty($_POST["value"]) & !empty($_POST["cdata"])) 
 {
   echo " Отримано id - ".$_POST["id"]."<br>";
  	$id=$_POST["id"];
  	$val=$_POST["value"];
- 	$cdate=date('Y-m-d');
+ 	//$cdate=date('Y-m-d');
+ 	$cdate=$_POST["cdata"];
  	echo $cdate;
  	$mysqli->query("INSERT INTO Sensors(id,Value,cdate) VALUES ($id,$val,'$cdate')");
  } 
