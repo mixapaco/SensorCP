@@ -2,7 +2,16 @@
 <?php 
 
 	require_once 'connection.php';
-	$query ="SELECT * FROM sensors";
+
+    if ( !empty($_GET["id"])) 
+    {  
+    $id=$_GET["id"];   
+    } else
+    {
+        $id=1;
+    }
+
+	$query ="SELECT * FROM sensors WHERE id=$id";
 	$link = mysqli_connect($host, $user, $password, $database) 
     or die("Ошибка " . mysqli_error($link)); 
     $result = mysqli_query($link, $query) or die("Ошибка " . mysqli_error($link)); 
