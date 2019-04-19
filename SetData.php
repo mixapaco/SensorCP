@@ -15,7 +15,8 @@
 
 
 <?php 
-$mysqli = new mysqli("localhost", "root", "", "DB");
+require_once 'connection.php';
+$mysqli = new mysqli($host, $user, $password, $database);
 if ($mysqli->connect_errno) 
 {
     echo "Не вдалося підкльчитися до MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
