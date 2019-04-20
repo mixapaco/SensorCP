@@ -21,12 +21,12 @@ if($result)
    
     $rows = mysqli_num_rows($result); 
      
-    echo "<table><tr><th>Id запиту</th><th>Id Сенсора</th><th>К-сть</th><th>Дата</th></tr>";
+    echo "<table class='toble'><tr><th>Id запиту</th><th>Id Сенсора</th><th>К-сть</th><th>Дата</th></tr>";
     for ($i = 0 ; $i < $rows ; ++$i)
     {
         $row = mysqli_fetch_row($result);
         echo "<tr>";
-            for ($j = 0 ; $j < 4 ; ++$j) echo "<td>$row[$j]</td>";
+            for ($j = 0 ; $j < 4 ; ++$j) echo "<td class='td'>$row[$j]</td>";
         echo "</tr>";
     }
     echo "</table>";
@@ -43,16 +43,12 @@ mysqli_close($link);
 //print json_encode($data);
 
 ?>
-
 <div id="chart-conteiner">
     <canvas id="mycanvas"></canvas>
 </div>
-
-<form action='' method='get'>
-<p>ID:<input type='text'  name='id' ></p>
-<input type='submit' ">
-</form>
-
-     
+<form action='' method='get' class='knop'>
+<p><span class="aidi">ID :   </span><input class='pole' type='text'  name='id' ></p>
+<input type='submit' class="inp">
+</form>  
 
 <?php include 'Footer.php'; ?>
