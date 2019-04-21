@@ -1,5 +1,5 @@
 	<footer>
-		<div class="footer">
+		<div class="footerr">
       <hr>
   		<p><span style="font-size: 33px;">&#9993:</span><span style="font-size: 33px; font-style: italic;"> woodborder@gmail.com</span></p>
 		  <p>&#x24B8 Copyrighted by three dudes. 2019</p>

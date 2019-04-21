@@ -9,7 +9,7 @@
 </head>
 <body>
 	<header>
-	 	<div class="header">
+	 	<div class="headerr">
       <h1 class='hesh'>Scanner statistics</h1>
       <hr>
 			<p class='pesh'>We will provide info about your scanner</p>

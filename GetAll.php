@@ -1,4 +1,5 @@
 <?php include 'header.php'; ?>
+<div class="conntennt">
 <?php 
     require_once 'connection.php';  
     //Check id 
@@ -45,5 +46,5 @@ mysqli_close($link);
 <p><span class="aidi">DATE BEFORE:   </span><input class='pole' id="inputdateb" type='text'  name='date' ></p>
 <input type='button' onclick="getChart()" class="inp" value="OK">
 </form>  
-
+</div>
 <?php include 'footer.php'; ?>
