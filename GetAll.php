@@ -1,4 +1,4 @@
-<?php include 'Header.php'; ?>
+<?php include 'header.php'; ?>
 <?php 
 
 	require_once 'connection.php';
@@ -51,4 +51,4 @@ mysqli_close($link);
 <input type='submit' class="inp">
 </form>  
 
-<?php include 'Footer.php'; ?>
+<?php include 'footer.php'; ?>

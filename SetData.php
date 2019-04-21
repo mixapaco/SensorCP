@@ -23,7 +23,7 @@ if ($mysqli->connect_errno)
 }
 else 
 {
-	echo "conected<br>";
+	echo "connected<br>";
 }
 
 if ( !empty($_POST["id"]) & !empty($_POST["value"]) & !empty($_POST["cdata"])) 
