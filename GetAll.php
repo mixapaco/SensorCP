@@ -21,15 +21,16 @@ if($result)
    
     $rows = mysqli_num_rows($result); 
      
-    echo "<table class='toble'><tr><th>Id запиту</th><th>Id Сенсора</th><th>К-сть</th><th>Дата</th></tr>";
-    for ($i = 0 ; $i < $rows ; ++$i)
-    {
-        $row = mysqli_fetch_row($result);
-        echo "<tr>";
-            for ($j = 0 ; $j < 4 ; ++$j) echo "<td class='td'>$row[$j]</td>";
-        echo "</tr>";
-    }
-    echo "</table>";
+     //table HTML
+    // echo "<table class='toble'><tr><th>Id запиту</th><th>Id Сенсора</th><th>К-сть</th><th>Дата</th></tr>";
+    // for ($i = 0 ; $i < $rows ; ++$i)
+    // {
+    //     $row = mysqli_fetch_row($result);
+    //     echo "<tr>";
+    //         for ($j = 0 ; $j < 4 ; ++$j) echo "<td class='td'>$row[$j]</td>";
+    //     echo "</tr>";
+    // }
+    // echo "</table>";
       
     foreach ($result as $row) {
         $data[]=$row;
@@ -48,7 +49,9 @@ mysqli_close($link);
 </div>
 <form action='' method='' class='knop'>
 <p><span class="aidi">ID :   </span><input class='pole' id="inputrec" type='text'  name='id' ></p>
-<input type='button' onclick="getChart()" class="inp">
+<p><span class="aidi">DATE AFTER :   </span><input class='pole' id="inputdatea" type='text'  name='date' ></p>
+<p><span class="aidi">DATE BEFORE:   </span><input class='pole' id="inputdateb" type='text'  name='date' ></p>
+<input type='button' onclick="getChart()" class="inp" value="OK">
 </form>  
 
 <?php include 'footer.php'; ?>

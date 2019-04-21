@@ -11,10 +11,25 @@
         $id=2;
     }
 
-	$query ="SELECT * FROM sensors WHERE id=$id";
-	$link = mysqli_connect($host, $user, $password, $database) 
+    if(!empty($_GET["cdatea"])&!empty($_GET["cdateb"]))
+    {
+        $cdatea=$_GET["cdatea"];
+        $cdateb=$_GET["cdateb"];
+
+    $query ="SELECT * FROM sensors WHERE  id=$id and cdate between '$cdatea' and '$cdateb' ";
+    $link = mysqli_connect($host, $user, $password, $database) 
     or die("Ошибка " . mysqli_error($link)); 
     $result = mysqli_query($link, $query) or die("Ошибка " . mysqli_error($link)); 
+    }
+    else
+    {
+       $query ="SELECT * FROM sensors WHERE id=$id";
+    $link = mysqli_connect($host, $user, $password, $database) 
+    or die("Ошибка " . mysqli_error($link)); 
+    $result = mysqli_query($link, $query) or die("Ошибка " . mysqli_error($link));  
+    }
+
+	
     $data[]=array();
 if($result)
 {
