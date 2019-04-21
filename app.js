@@ -1,27 +1,26 @@
-$(document).ready(
-function ()
-//getChart()
+//$(document).ready(
+function getChart()
 {
 
 var url_string = window.location.href;
 var url = new URL(url_string);
 var c = url.searchParams.get("id");
-
+     c=document.getElementById("inputrec").value;
 
   $.ajax({
     url: "http://localhost/SensorCP/getJson.php"+"?id="+c,
     method: "GET",
     success: function(data) {
-   		console.log(data);
+   		
       var value = [];
       var dat = [];
       data = JSON.parse(data);
 
       for(var i in data) {
-        if(data[i].Id===undefined){continue;}
+        if(data[i].id===undefined){continue;}
         value.push(data[i].cdate);
         dat.push(data[i].Value);
-         
+        
       }
       
       var chartdata = {
@@ -38,11 +37,20 @@ var c = url.searchParams.get("id");
         ]
       };
       //console.log(chartdata);
-      var ctx = $("#mycanvas");
+      var ctx = document.getElementById('mycanvas');
 
       var barGraph = new Chart(ctx, {
         type: 'bar',
-        data: chartdata
+        data: chartdata,
+         options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
       });
     },
     error: function(data) {
@@ -50,5 +58,5 @@ var c = url.searchParams.get("id");
     }
   });
 }
-);
+//);
 

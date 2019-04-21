@@ -46,9 +46,9 @@ mysqli_close($link);
 <div id="chart-conteiner">
     <canvas id="mycanvas"></canvas>
 </div>
-<form action='' method='get' class='knop'>
-<p><span class="aidi">ID :   </span><input class='pole' type='text'  name='id' ></p>
-<input type='submit' class="inp">
+<form action='' method='' class='knop'>
+<p><span class="aidi">ID :   </span><input class='pole' id="inputrec" type='text'  name='id' ></p>
+<input type='button' onclick="getChart()" class="inp">
 </form>  
 
 <?php include 'footer.php'; ?>
