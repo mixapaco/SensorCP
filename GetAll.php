@@ -44,7 +44,7 @@ mysqli_close($link);
 <form action='' method='' class='knop'>
 <p><span class="aidi">ID :   </span><input class='pole' id="inputrec" type='text'  name='id' ></p>
 <p><span class="aidi">DATE AFTER :   </span><input class='pole' id="inputdatea" type='text'  name='date' ></p>
-<p><span class="aidi">DATE BEFORE:   </span><input class='pole' id="inputdateb" type='text'  name='date' ></p>
+<p><span class="aidi">DATE BEFORE:   </span><input class='pole' id="inputdateb" type='text'  name='date' ></p>git 
 <input type='button' onclick="getChart()" class="inp" value="OK">
 </form>  
 

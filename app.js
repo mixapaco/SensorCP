@@ -13,17 +13,21 @@ function getChart()
   $.ajax({
     url: ur,
     method: "GET",
-    success: function(data) {
-   		
+    success: function(data) 
+    {
+      data = JSON.parse(data);
+   	////
       var value = [];
       var dat = [];
-      data = JSON.parse(data);
+    
       console.log(data);
       for(var i in data) {
-        if(data[i].Id===undefined){continue;}
+        if(data[i].Id===undefined)
+          {
+            continue;
+          }
         dat.push(data[i].cdate);
         value.push(data[i].Value);
-        
       }
       
       var chartdata = {
