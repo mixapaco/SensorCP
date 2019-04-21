@@ -1,25 +1,20 @@
 <?php include 'header.php'; ?>
 <?php 
-
-	require_once 'connection.php';
-
-    if ( !empty($_GET["id"])) 
-    {  
+    require_once 'connection.php';  
+    //Check id 
+    if ( !empty($_GET["id"])) {  
     $id=$_GET["id"];   
-    } else
-    {
-        $id=1;
-    }
+    } 
+    else { $id=1;}
 
-	$query ="SELECT * FROM sensors WHERE id=$id";
+	$query ="SELECT * FROM sensors WHERE id = $id";
 	$link = mysqli_connect($host, $user, $password, $database) 
     or die("Ошибка " . mysqli_error($link)); 
     $result = mysqli_query($link, $query) or die("Ошибка " . mysqli_error($link)); 
     $data[]=array();
-if($result)
-{
-   
-    $rows = mysqli_num_rows($result); 
+    if($result)
+    {
+        $rows = mysqli_num_rows($result); 
      
      //table HTML
     // echo "<table class='toble'><tr><th>Id запиту</th><th>Id Сенсора</th><th>К-сть</th><th>Дата</th></tr>";
@@ -32,8 +27,8 @@ if($result)
     // }
     // echo "</table>";
       
-    foreach ($result as $row) {
-        $data[]=$row;
+        foreach ($result as $row) {
+            $data[]=$row;
     }
     
     mysqli_free_result($result);
@@ -42,7 +37,6 @@ if($result)
 mysqli_close($link);
 
 //print json_encode($data);
-
 ?>
 <div id="chart-conteiner">
     <canvas id="mycanvas"></canvas>

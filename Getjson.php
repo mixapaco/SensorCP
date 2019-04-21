@@ -1,14 +1,12 @@
-
 <?php 
-
-	require_once 'connection.php';
+    require_once 'connection.php';
 
     if ( !empty($_GET["id"])) 
     {  
     $id=$_GET["id"];   
     } else
     {
-        $id=2;
+        $id=1;
     }
 
     if(!empty($_GET["cdatea"])&!empty($_GET["cdateb"]))
@@ -33,20 +31,12 @@
     $data[]=array();
 if($result)
 {
-   
-    $rows = mysqli_num_rows($result); 
-     
-   
+   $rows = mysqli_num_rows($result); 
     foreach ($result as $row) {
         $data[]=$row;
     }
-    
     mysqli_free_result($result);
 }
- 
 mysqli_close($link);
-
 print json_encode($data);
-
-
 ?>

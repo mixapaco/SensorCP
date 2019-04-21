@@ -7,9 +7,9 @@ function getChart()
      cdatea=document.getElementById("inputdatea").value;
      cdateb=document.getElementById("inputdateb").value;
      if(c==null){c=1;}
-     var ur="http://localhost/SensorCP/getJson.php"+"?id="+c;
+     var ur="http://localhost/SensorCP/GetJson.php"+"?id="+c;
      if(cdatea!=null & cdateb!=null)
-      {ur="http://localhost/SensorCP/getJson.php?id="+c+"&cdatea="+cdatea+"&cdateb="+cdateb;}
+      {ur="http://localhost/SensorCP/GetJson.php?id="+c+"&cdatea="+cdatea+"&cdateb="+cdateb;}
   $.ajax({
     url: ur,
     method: "GET",
@@ -21,13 +21,13 @@ function getChart()
       console.log(data);
       for(var i in data) {
         if(data[i].Id===undefined){continue;}
-        value.push(data[i].cdate);
-        dat.push(data[i].Value);
+        dat.push(data[i].cdate);
+        value.push(data[i].Value);
         
       }
       
       var chartdata = {
-        labels: value,
+        labels: dat,
         datasets : [
           {
             label: 'Chart',
@@ -35,7 +35,7 @@ function getChart()
             borderColor: 'rgba(200, 200, 200, 0.75)',
             hoverBackgroundColor: 'rgba(200, 200, 200, 1)',
             hoverBorderColor: 'rgba(200, 200, 200, 1)',
-            data: dat
+            data: value
           }
         ]
       };
