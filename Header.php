@@ -10,12 +10,12 @@
 <body>
 	<header>
 	 	<div class="header">
-       		<h1 class='hesh'>Scanner statistics</h1>
-          <hr>
+      <h1 class='hesh'>Scanner statistics</h1>
+      <hr>
 			<p class='pesh'>We will provide info about your scanner</p>
-        <hr>
-		<div id="callout">
-        	<h2> <i class="fa fa-envelope" aria-hidden="true"></i></h2>
+      <hr>
+		  <div id="callout">
+        <h2> <i class="fa fa-envelope" aria-hidden="true"></i></h2>
     	</div>
-    	</div>
-    </header>
+    </div>
+  </header>

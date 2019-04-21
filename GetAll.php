@@ -1,6 +1,6 @@
 <?php include 'header.php'; ?>
+<div class="conntennt">
 <?php 
-
 	require_once 'connection.php';
 
     if ( !empty($_GET["id"])) 
@@ -43,12 +43,14 @@ mysqli_close($link);
 //print json_encode($data);
 
 ?>
-<div id="chart-conteiner">
+    <div id="chart-conteiner">
     <canvas id="mycanvas"></canvas>
+    </div>
+    <form action='' method='' class='knop'>
+    <p><span class="aidi">ID :   </span><input class='pole' id="inputrec" type='text'  name='id' ></p>
+    <input type='button' onclick="getChart()" class="inp">
+    </form>  
 </div>
-<form action='' method='' class='knop'>
-<p><span class="aidi">ID :   </span><input class='pole' id="inputrec" type='text'  name='id' ></p>
-<input type='button' onclick="getChart()" class="inp">
-</form>  
+
 
 <?php include 'footer.php'; ?>
