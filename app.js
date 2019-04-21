@@ -20,7 +20,7 @@ function getChart()
       data = JSON.parse(data);
       console.log(data);
       for(var i in data) {
-        if(data[i].id===undefined){continue;}
+        if(data[i].Id===undefined){continue;}
         value.push(data[i].cdate);
         dat.push(data[i].Value);
         
