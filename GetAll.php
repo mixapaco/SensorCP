@@ -7,7 +7,7 @@
     $id=$_GET["id"];   
     } 
     else { $id=1;}
-    $query ="SELECT * FROM sensors WHERE id = $id";
+    $query ="SELECT Number, Id, Value, cdate FROM sensors WHERE id = $id";
     $link = mysqli_connect($host, $user, $password, $database) 
     or die("Ошибка " . mysqli_error($link)); 
     $result = mysqli_query($link, $query) or die("Ошибка " . mysqli_error($link)); 
@@ -42,8 +42,8 @@ mysqli_close($link);
 </div>
 <form action='' method='' class='knop'>
 <p><span class="aidi">ID :   </span><input class='pole' id="inputrec" type='text'  name='id' ></p>
-<p><span class="aidi">DATE AFTER :   </span><input class='pole' id="inputdatea" type='text'  name='date' ></p>
-<p><span class="aidi">DATE BEFORE:   </span><input class='pole' id="inputdateb" type='text'  name='date' ></p>git 
+<p><span class="aidi">DATE AFTER :   </span><input class='pole' id="inputdatea" type='date'  name='date' ></p>
+<p><span class="aidi">DATE BEFORE:   </span><input class='pole' id="inputdateb" type='date'  name='date' ></p> 
 <input type='button' onclick="getChart()" class="inp" value="OK">
 </form>  
 </div>

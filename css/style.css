@@ -39,7 +39,6 @@
 .td{
 	text-align: center;
 }
-
 #mycanvas{
 	background-color: #abbbd8;
 }
@@ -72,13 +71,12 @@
 	font-weight: bold;
 	display: inline-block;
 	font-size: 26px;
-	border-radius: 12px;
+	/*border-radius: 12px;*/
 }
 .pole{
-	border-radius: 12px;
+	/*border-radius: 12px;*/
 	border: none;
 }
-
 .footerr{
 	margin-top: 0%;
 	height:12%;
