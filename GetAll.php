@@ -1,4 +1,5 @@
 <?php include 'header.php'; ?>
+<div class="conntennt">
 <?php 
     require_once 'connection.php';  
     //Check id 
@@ -6,9 +7,8 @@
     $id=$_GET["id"];   
     } 
     else { $id=1;}
-
-	$query ="SELECT * FROM sensors WHERE id = $id";
-	$link = mysqli_connect($host, $user, $password, $database) 
+    $query ="SELECT * FROM sensors WHERE id = $id";
+    $link = mysqli_connect($host, $user, $password, $database) 
     or die("Ошибка " . mysqli_error($link)); 
     $result = mysqli_query($link, $query) or die("Ошибка " . mysqli_error($link)); 
     $data[]=array();
@@ -35,7 +35,6 @@
 }
  
 mysqli_close($link);
-
 //print json_encode($data);
 ?>
 <div id="chart-conteiner">
@@ -47,5 +46,5 @@ mysqli_close($link);
 <p><span class="aidi">DATE BEFORE:   </span><input class='pole' id="inputdateb" type='text'  name='date' ></p>git 
 <input type='button' onclick="getChart()" class="inp" value="OK">
 </form>  
-
+</div>
 <?php include 'footer.php'; ?>
