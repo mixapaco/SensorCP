@@ -1,0 +1,84 @@
+*{
+	margin: 0;
+	padding: 0; 
+}
+.header{
+  text-align: center;
+  background: #282830;
+  color: white;
+  font-size: 30px;
+}
+.hesh{
+	padding-top: 1%;
+	padding-bottom: 1%;
+}
+.pesh{
+	padding-top: 1%;
+	padding-bottom: 1%;
+}
+
+.toble{
+	table-layout: fixed;
+  width: 100%;
+  border-collapse: collapse;
+  border: 3px solid #282830;
+	margin-right: auto;
+	margin-left: auto;
+	font-family: 'Merriweather', sans-serif;
+	letter-spacing: 2px;
+	background-color: #a7aaaf;
+}
+.td{
+	text-align: center;
+}
+
+#mycanvas{
+	background-color: #abbbd8;
+}
+#chart-conteiner{
+	text-align: center;
+}
+.knop{
+	/* background-color: #151519; */
+	text-align: center;
+	/* border: 3px solid #282830; */
+	background-color: #151519;
+	color: white;
+	font-family: 'Playfair Display', serif;
+	padding-bottom: 0.75%;
+}
+.aidi{
+	font-style: normal;
+	font-size: 20px;
+	text-decoration-color: white;
+	text-anchor: white 3px;
+	padding-top: 1.5%;
+	margin-bottom: 0.9%;
+}
+.inp{
+	font-family: 'Merriweather', sans-serif;
+	margin-top: 0.75%;
+	background-color: #bcc8db;
+  border: none;
+  color: #10151c;
+  padding: 15px 32px;
+  text-align: center;
+  font-weight: bold;
+  display: inline-block;
+  font-size: 26px;
+  border-radius: 12px;
+}
+.pole{
+	border-radius: 12px;
+	border: none;
+}
+
+.footer {
+	position: absolute;
+  		left: 0;
+  		width: 100%;
+  		background-color: #151519;
+  		color: white;
+  		text-align: center;
+	display: block;
+}
