@@ -1,27 +1,34 @@
 $(document).ready(getChart());
 function getChart()
 {
-
-
-     c=document.getElementById("inputrec").value;
-     cdatea=document.getElementById("inputdatea").value;
-     cdateb=document.getElementById("inputdateb").value;
-     if(c==null){c=1;}
-     var ur="http://localhost/SensorCP/GetJson.php"+"?id="+c;
-     if(cdatea!=null & cdateb!=null)
-      {ur="http://localhost/SensorCP/GetJson.php?id="+c+"&cdatea="+cdatea+"&cdateb="+cdateb;}
-  $.ajax({
+  connectId = document.getElementById("inputrec").value;
+  connectDateA=document.getElementById("inputdatea").value;
+  connectDateB=document.getElementById("inputdateb").value;
+  
+  if(connectId==null)
+  {
+    connectId=1;
+  }
+  
+  var ur="http://localhost/SensorCP/GetJson.php?id="+connectId;
+  
+  if(connectDateA!=null & connectDateB!=null)
+  {
+    ur+="&cdatea="+connectDateA+"&cdateb="+connectDateB;
+  }
+  
+  $.ajax(
+  {
     url: ur,
     method: "GET",
     success: function(data) 
     {
       data = JSON.parse(data);
-   	////
       var value = [];
       var dat = [];
-    
-      console.log(data);
-      for(var i in data) {
+
+      for(var i in data) 
+      {
         if(data[i].Id===undefined)
           {
             continue;
@@ -43,26 +50,19 @@ function getChart()
           }
         ]
       };
-      //console.log(chartdata);
+      
       var ctx = document.getElementById('mycanvas');
 
       var barGraph = new Chart(ctx, {
         type: 'bar',
         data: chartdata,
-         options: {
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero: true
-                }
-            }]
-        }
-    }
+        options: {scales: {yAxes:[{ticks:{beginAtZero: true}}]}}
       });
     },
-    error: function(data) {
-      console.log(data);
-    }
+      error: function(data) 
+      {
+        console.log(data);
+      }
   });
 }
 

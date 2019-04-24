@@ -2,10 +2,10 @@
 -- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
--- Хост: 127.0.0.1
--- Час створення: Квт 22 2019 р., 21:10
--- Версія сервера: 10.1.38-MariaDB
--- Версія PHP: 7.3.2
+-- Host: 127.0.0.1
+-- Generation Time: Apr 24, 2019 at 12:08 PM
+-- Server version: 10.1.38-MariaDB
+-- PHP Version: 7.3.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,13 +19,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- База даних: `db`
+-- Database: `db`
 --
 
 -- --------------------------------------------------------
 
 --
--- Структура таблиці `sensors`
+-- Table structure for table `sensors`
 --
 
 CREATE TABLE `sensors` (
@@ -36,7 +36,7 @@ CREATE TABLE `sensors` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
--- Дамп даних таблиці `sensors`
+-- Dumping data for table `sensors`
 --
 
 INSERT INTO `sensors` (`Number`, `Id`, `Value`, `cdate`) VALUES
@@ -51,25 +51,24 @@ INSERT INTO `sensors` (`Number`, `Id`, `Value`, `cdate`) VALUES
 (9, 3, 6, '2019-04-12'),
 (10, 3, 7, '2019-04-13'),
 (11, 11, 6, '2019-04-14'),
-(12, 2, 40, '2019-04-16'),
-(13, 2, 40, '2019-04-16');
+(12, 2, 40, '2019-04-16');
 
 --
--- Індекси збережених таблиць
+-- Indexes for dumped tables
 --
 
 --
--- Індекси таблиці `sensors`
+-- Indexes for table `sensors`
 --
 ALTER TABLE `sensors`
   ADD PRIMARY KEY (`Number`);
 
 --
--- AUTO_INCREMENT для збережених таблиць
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT для таблиці `sensors`
+-- AUTO_INCREMENT for table `sensors`
 --
 ALTER TABLE `sensors`
   MODIFY `Number` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
