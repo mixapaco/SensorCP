@@ -24,6 +24,9 @@ function getChart()
     success: function(data) 
     {
       data = JSON.parse(data);
+      addTable(data);
+
+
       var value = [];
       var dat = [];
 
@@ -66,4 +69,32 @@ function getChart()
   });
 }
 
+function addTable(data) {
+  var myTableDiv = document.getElementById("mytable");
 
+  var table = document.createElement('TABLE');
+  table.border = '1';
+
+  var tableBody = document.createElement('TBODY');
+  table.appendChild(tableBody);
+
+  for(var i in data) 
+  {
+    if(data[i].Id===undefined)
+      {
+        continue;
+      }
+ 
+    var tr = document.createElement('TR');
+    tableBody.appendChild(tr);
+
+    for(var j in data[i]) 
+    {
+      var td = document.createElement('TD');
+      td.width = '75';
+      td.appendChild(document.createTextNode(data[i][j]));      
+      tr.appendChild(td);
+    }
+  }
+  myTableDiv.appendChild(table);
+}

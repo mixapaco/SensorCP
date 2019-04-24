@@ -1,4 +1,6 @@
 <?php include 'header.php'; ?>
+<div id="mytable"></div>
+
 <div id="chart-conteiner">
     <canvas id="mycanvas"></canvas>
 </div>
