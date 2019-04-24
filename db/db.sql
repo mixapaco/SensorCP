@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 24, 2019 at 12:08 PM
+-- Generation Time: Apr 24, 2019 at 03:11 PM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.3
 
@@ -53,6 +53,26 @@ INSERT INTO `sensors` (`Number`, `Id`, `Value`, `cdate`) VALUES
 (11, 11, 6, '2019-04-14'),
 (12, 2, 40, '2019-04-16');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
+  `username` varchar(50) COLLATE utf8_bin NOT NULL,
+  `passcode` varchar(50) COLLATE utf8_bin NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `username`, `passcode`) VALUES
+(1, 'name', 'password'),
+(5, 'b068931cc450442b63f5b3d276ea4297', '5f4dcc3b5aa765d61d8327deb882cf99');
+
 --
 -- Indexes for dumped tables
 --
@@ -64,6 +84,12 @@ ALTER TABLE `sensors`
   ADD PRIMARY KEY (`Number`);
 
 --
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -72,6 +98,12 @@ ALTER TABLE `sensors`
 --
 ALTER TABLE `sensors`
   MODIFY `Number` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
