@@ -45,7 +45,7 @@ function getChart()
         datasets : [
           {
             label: 'Chart',
-            backgroundColor: 'rgba(200, 200, 200, 0.75)',
+            backgroundColor: 'rgba(51,255,102,1)',
             borderColor: 'rgba(200, 200, 200, 0.75)',
             hoverBackgroundColor: 'rgba(200, 200, 200, 1)',
             hoverBorderColor: 'rgba(200, 200, 200, 1)',
@@ -91,7 +91,7 @@ function addTable(data) {
     for(var j in data[i]) 
     {
       var td = document.createElement('TD');
-      td.width = '75';
+      td.setAttribute('class','cell');
       td.appendChild(document.createTextNode(data[i][j]));      
       tr.appendChild(td);
     }

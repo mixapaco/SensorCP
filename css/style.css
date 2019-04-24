@@ -10,6 +10,7 @@
 	color: white;
 	font-size: 30px;
 }
+
 .conntennt{
 	height: 68%;
 	width: 100%;
@@ -25,32 +26,46 @@
 	padding-bottom: 1%;
 }
 
-.toble{
+#mytable{
 	table-layout: fixed;
 	width: 100%;
 	border-collapse: collapse;
-	border: 3px solid #282830;
+	/* border: 3px solid #282830; */
 	margin-right: auto;
 	margin-left: auto;
 	font-family: 'Merriweather', sans-serif;
 	letter-spacing: 2px;
 	background-color: #a7aaaf;
+	text-align: center;
+}
+.cell{
+	width: 5%;
 }
 .td{
 	text-align: center;
 }
 #mycanvas{
-	background-color: #abbbd8;
+	background-color: #8e8f91;
 }
 #chart-conteiner{
 	text-align: center;
 }
 .knop{
+	width: 100%;
+	display: flex;
 	text-align: center;
 	background-color: #151519;
 	color: white;
 	font-family: 'Playfair Display', serif;
 	padding-bottom: 0.75%;
+}
+.left{
+	width: 50%;
+	display: block;
+}
+.right{
+	width: 50%;
+	display: block;
 }
 .aidi{
 	font-style: normal;
