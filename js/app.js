@@ -1,3 +1,4 @@
+ var barGraph;
 $(document).ready(getChart());
 function getChart()
 {
@@ -54,13 +55,17 @@ function getChart()
         ]
       };
       
-      var ctx = document.getElementById('mycanvas');
 
-      var barGraph = new Chart(ctx, {
-        type: 'bar',
-        data: chartdata,
-        options: {scales: {yAxes:[{ticks:{beginAtZero: true}}]}}
-      });
+    
+      if(barGraph===undefined)
+      {
+        createChartObj(chartdata);
+      
+        return 0;
+      }
+      console.log(chartdata);
+      barGraph.data=chartdata;
+      barGraph.update();
     },
       error: function(data) 
       {
@@ -97,4 +102,15 @@ function addTable(data) {
     }
   }
   myTableDiv.appendChild(table);
+}
+
+function createChartObj(chartdata)
+{
+  var ctx = document.getElementById('mycanvas').getContext('2d');
+      ctx.clearRect(0, 0, ctx.width, ctx.height);
+      barGraph = new Chart(ctx, {
+        type: 'bar',
+        data: chartdata,
+        options: {scales: {yAxes:[{ticks:{beginAtZero: true}}]}}
+      });
 }
