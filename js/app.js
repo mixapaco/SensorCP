@@ -63,7 +63,7 @@ function getChart()
       
         return 0;
       }
-      console.log(chartdata);
+      
       barGraph.data=chartdata;
       barGraph.update();
     },
@@ -77,8 +77,11 @@ function getChart()
 function addTable(data) {
   var myTableDiv = document.getElementById("mytable");
 
+  
+  if(myTableDiv.children[0]!=undefined){myTableDiv.children[0].remove()}
   var table = document.createElement('TABLE');
   table.border = '1';
+
 
   var tableBody = document.createElement('TBODY');
   table.appendChild(tableBody);
