@@ -33,7 +33,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
       if($count == 1) 
       {
-         echo "Your Login Name or Password is invalid";
+         echo "Your Login Name is invalid";
       }
       else 
       {
