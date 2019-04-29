@@ -11,9 +11,15 @@
         <div class="aidi">DATE BEFORE:   </div>
     </div>
     <div class="right">
+
         <div><input class='pole' id="inputrec" type='text'  name='id'></div>
-        <div><input class='pole' id="inputdatea" type='date'  name='date'></div>    
-        <div><input class='pole' id="inputdateb" type='date'  name='date'></div>
+        <div><input class='pole' id="inputdatea" type='date'  name='datea'></div>    
+        <div><input class='pole' id="inputdateb" type='date'  name='dateb'></div>
+        
+        <div><input type="radio" id="rFilW" name="rFilter" value="Week"> Week</div>
+        <div><input type="radio" id="rFilM" name="rFilter" value="Mouth"> Mouth</div>
+        <div><input type="radio" id="rFilY" name="rFilter" value="Year"> Year</div>
+
     </div>
     <input type='button' onclick="getChart()" class="inp" value="OK">
 </form>  

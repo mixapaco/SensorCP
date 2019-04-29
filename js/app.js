@@ -1,10 +1,37 @@
  var barGraph;
+ var d = new Date();
 $(document).ready(getChart());
 function getChart()
 {
-  connectId = document.getElementById("inputrec").value;
-  connectDateA=document.getElementById("inputdatea").value;
-  connectDateB=document.getElementById("inputdateb").value;
+  var connectId = document.getElementById("inputrec").value;
+  var connectDateA=document.getElementById("inputdatea").value;
+  var connectDateB=document.getElementById("inputdateb").value;
+  
+  if(document.getElementById("rFilW").checked)
+    {
+      connectDateB=d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate();
+      var bufd = new Date(); 
+      bufd.setTime(Date.now()-604800000);
+      connectDateA=bufd.getFullYear()+'-'+(bufd.getMonth()+1)+'-'+(bufd.getDate());
+
+    }
+
+  if(document.getElementById("rFilM").checked)
+    {
+      connectDateB=d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate();
+      var bufd = new Date(); 
+      bufd.setTime(Date.now()-43800*60*1000);
+      connectDateA=bufd.getFullYear()+'-'+(bufd.getMonth()+1)+'-'+(bufd.getDate());
+
+    }
+  if(document.getElementById("rFilY").checked)
+    {
+      connectDateB=d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate();
+      var bufd = new Date(); 
+      bufd.setTime(Date.now()-43800*60*1000*12);
+      connectDateA=bufd.getFullYear()+'-'+(bufd.getMonth()+1)+'-'+(bufd.getDate());
+
+    }
   
   if(connectId==null)
   {
