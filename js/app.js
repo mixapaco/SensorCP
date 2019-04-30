@@ -156,7 +156,7 @@ function getLoginPage()
     {
       var loginH = document.getElementById("login");
       loginH.innerHTML=data;
-      console.log(data);
+      
      
     },
       error: function(data) 
@@ -179,7 +179,7 @@ function getLogoutPage()
       var loginH = document.getElementById("login");
       loginH.innerHTML="<button onclick='getLoginPage()'>login</button>";
       
-      console.log(data);
+      
      
     },
       error: function(data) 
