@@ -37,6 +37,10 @@ session_start();
         "<button onclick='getLoginPage()'>
          login 
         </button>";
+        echo 
+        "<button onclick='getRegistrPage()'>
+         registrate
+        </button>";
 
       }
        ?>

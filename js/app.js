@@ -189,3 +189,25 @@ function getLogoutPage()
   });
 
 }
+function getRegistrPage()
+{
+  var ur="http://localhost/SensorCP/log/registrate.php";
+  $.ajax(
+  {
+    url: ur,
+    method: "POST",
+    success: function(data) 
+    {
+      var loginH = document.getElementById("login");
+      loginH.innerHTML=data;
+      
+      console.log(data);
+     
+    },
+      error: function(data) 
+      {
+        console.log(data);
+      }
+  });
+
+}

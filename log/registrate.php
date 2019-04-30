@@ -6,6 +6,8 @@
 
 if($_SERVER["REQUEST_METHOD"] == "POST") {
       // username and password sent from form 
+   if(!empty($_POST["username"])&!empty($_POST["password"])&!empty($_POST["password2"]))
+   {
       $db = mysqli_connect($host, $user, $password, $database) 
         or die("Ошибка " . mysqli_error($link));
 
@@ -39,14 +41,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
       {
          $sql = "INSERT INTO users (username,passcode) VALUES('$myusername','$mypassword')";
          $result = mysqli_query($db,$sql);
-         header("location: login.php");
+         header("location: ../GetAll.php");
       }
-
-
-      
    }
+}
  ?>
-<form action="registrate.php" method="post">
+<form action="log/registrate.php" method="post">
 	<p>
 		Name:<input type="text" name="username">
 	</p>
