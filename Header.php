@@ -1,3 +1,6 @@
+<?php 
+session_start();
+ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,6 +20,29 @@
 		  <div id="callout">
         <h2> <i class="fa fa-envelope" aria-hidden="true"></i></h2>
     	</div>
+      <div id="login">
+      <?php 
+      if($_SESSION!='undefine')
+      if(!empty($_SESSION["login_user"]))
+      {
+        echo $_SESSION['login_user'];
+        echo 
+        "<button onclick='getLogoutPage()'>
+         logout 
+        </button>";
+      }
+      else
+      {
+        echo 
+        "<button onclick='getLoginPage()'>
+         login 
+        </button>";
+
+      }
+       ?>
+       
+      
+      </div>
     </div>
   </header>
   <div class="conntennt">

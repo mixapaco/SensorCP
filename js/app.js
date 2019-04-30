@@ -144,3 +144,48 @@ function createChartObj(chartdata)
         options: {scales: {yAxes:[{ticks:{beginAtZero: true}}]}}
       });
 }
+
+function getLoginPage()
+{
+  var ur="http://localhost/SensorCP/log/login.php";
+  $.ajax(
+  {
+    url: ur,
+    method: "POST",
+    success: function(data) 
+    {
+      var loginH = document.getElementById("login");
+      loginH.innerHTML=data;
+      console.log(data);
+     
+    },
+      error: function(data) 
+      {
+        console.log(data);
+      }
+  });
+
+}
+
+function getLogoutPage()
+{
+  var ur="http://localhost/SensorCP/log/logout.php";
+  $.ajax(
+  {
+    url: ur,
+    method: "POST",
+    success: function(data) 
+    {
+      var loginH = document.getElementById("login");
+      loginH.innerHTML="<button onclick='getLoginPage()'>login</button>";
+      
+      console.log(data);
+     
+    },
+      error: function(data) 
+      {
+        console.log(data);
+      }
+  });
+
+}

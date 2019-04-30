@@ -6,11 +6,14 @@
 
 if($_SERVER["REQUEST_METHOD"] == "POST") {
       // username and password sent from form 
+   if(!empty($_POST["username"])&!empty($_POST["password"]))
+   {
       $db = mysqli_connect($host, $user, $password, $database) 
         or die("Ошибка " . mysqli_error($link));
+      
       $myusername = mysqli_real_escape_string($db,$_POST['username']);
       $mypassword = mysqli_real_escape_string($db,$_POST['password']); 
-      
+      $myusernamebuf=$myusername;
       $myusername=hash('md5', $myusername);
 
       $mypassword=hash('md5', $mypassword);
@@ -31,15 +34,18 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
       if($count == 1) {
          
-         $_SESSION['login_user'] = $myusername;
+         $_SESSION['login_user'] = $myusernamebuf;
          
          header("location: ../GetAll.php");
-      }else {
+      }
+      else 
+      {
          $error = "Your Login Name or Password is invalid";
       }
    }
+}
  ?>
-<form action="login.php" method="post">
+<form action="log/login.php" method="post">
 	<p>
 		Name:<input type="text" name="username">
 	</p>
