@@ -211,3 +211,30 @@ function getRegistrPage()
   });
 
 }
+
+function textInputFilter(e)
+{
+     console.log(e.value);
+     
+    console.log(e.value.length);
+    if (e.value.length>50){
+      console.log("Entered maximum length");
+      var temp = e.value;
+      e.value = temp.substring(0,e.value.length-1);
+    }
+     var alet = false;
+    for (var i = 0; i <= e.value.length - 1; i++) {
+     
+      if (e.value[e.value.length-1].match(/[A-Za-z0-9]/)==null) 
+      {
+        alet = true;
+     var temp = e.value;
+      e.value = temp.substr(0,e.value.length-1);
+     }
+      else{
+        
+        // console.log("");
+      }
+   }
+   if (alet){alert("Wrong input: please enter a-z/A-Z/0-9");}
+}

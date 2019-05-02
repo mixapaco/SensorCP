@@ -47,10 +47,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
  ?>
 <form action="log/login.php" method="post">
 	<p>
-		Name:<input type="text" name="username">
+		Name:<input type="text" onchange='textInputFilter(this)' name="username">
 	</p>
 	<p>
-		Password:<input type="text" name="password">
+		Password:<input type="password" onchange='textInputFilter(this)' name="password">
 	</p>
 	<input class='inp rig' type='submit'>
 </form>
