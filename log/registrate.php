@@ -56,7 +56,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
    <p>
       Repeat password:<input type="text" name="password2">
    </p>
-	<input type="submit">
+	<input class='inp rig' type="submit">
 </form>
 
 <?php  ?>

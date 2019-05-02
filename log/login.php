@@ -52,7 +52,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 	<p>
 		Password:<input type="text" name="password">
 	</p>
-	<input type="submit">
+	<input class='inp rig' type='submit'>
 </form>
 
 <?php  ?>
