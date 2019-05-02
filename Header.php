@@ -34,11 +34,11 @@ session_start();
       else
       {
         echo 
-        "<button onclick='getLoginPage()'>
+        "<button class='inp lef' onclick='getLoginPage()'>
          login 
         </button>";
         echo 
-        "<button onclick='getRegistrPage()'>
+        "<button class='inp rig' onclick='getRegistrPage()'>
          registrate
         </button>";
 

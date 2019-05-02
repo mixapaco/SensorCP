@@ -78,7 +78,7 @@
 .inp{
 	font-family: 'Merriweather', sans-serif;
 	margin-top: 0.75%;
-	background-color: #bcc8db;
+	background-color: #a7aaaf;
 	border: none;
 	color: #10151c;
 	padding: 15px 32px;
@@ -86,8 +86,17 @@
 	font-weight: bold;
 	display: inline-block;
 	font-size: 26px;
-	/*border-radius: 12px;*/
+	border-radius: 7%;
 }
+.rig{
+	margin-left: 1%;
+	margin-bottom: 1%;
+	margin-top: 1%;
+}
+.bot{
+	margin-right: 5%;
+}
+
 .pole{
 	/*border-radius: 12px;*/
 	border: none;

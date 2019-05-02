@@ -17,11 +17,11 @@
         <div><input class='pole' id="inputdateb" type='date'  name='dateb'></div>
         
         <div><input type="radio" id="rFilW" name="rFilter" value="Week"> Week</div>
-        <div><input type="radio" id="rFilM" name="rFilter" value="Mouth"> Mouth</div>
+        <div><input type="radio" id="rFilM" name="rFilter" value="Month"> Month</div>
         <div><input type="radio" id="rFilY" name="rFilter" value="Year"> Year</div>
 
     </div>
-    <input type='button' onclick="getChart()" class="inp" value="OK">
+    <input type='button' onclick="getChart()" class="inp bot" value="OK">
 </form>  
 </div>
 <?php include 'footer.php'; ?>
