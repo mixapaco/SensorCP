@@ -73,7 +73,7 @@ function getChart()
 
     var chartdata = 
     {
-      labels: dat,
+      labels: ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"], //dat,
       datasets : 
       [{
         label: 'Chart',
