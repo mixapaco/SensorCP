@@ -3,11 +3,13 @@
 <div id="chart-conteiner">
     <canvas id="mycanvas"></canvas>
 </div>
+
 <form id="form" class="container-fluid">
     <div id="flex-wrap" class="form-group">
 		<div class="rows">
 			<div class="labelforinput">	
 				<label for="inputrec">Id</label>
+
 			</div>
 			<div>
 				<input id="inputrec" class="form-control same-input" type="text" placeholder = "Enter your id">

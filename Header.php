@@ -27,8 +27,8 @@ session_start();
 			}
 			//else
 			//{
-				echo "<div class='logbutt'><button class='btn btn-outline-secondary' type='button' onclick='getLoginPage()'>login</button></div>";
-				echo "<div class='logbutt'><button class='btn btn-outline-secondary' type='button' onclick='getRegistrPage()'>registrate</button></div>";
+				//echo "<div class='logbutt'><button class='btn btn-outline-secondary' type='button' onclick='getLoginPage()'>login</button></div>";
+				//echo "<div class='logbutt'><button class='btn btn-outline-secondary' type='button' onclick='getRegistrPage()'>registrate</button></div>";
 			//}
 			?>
 		</div>
