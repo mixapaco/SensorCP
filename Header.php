@@ -16,19 +16,20 @@ session_start();
 	<header class="container-fluid" id="header">
 	 	<p><h1 class="h1">Scanner statistics</h1>
 		We will provide info about your scanner</p>
-		<div id="login">
+		 
+		<!--<button class='btn btn-outline-secondary' type='button' onclick='getLogoutPage()'>logout</button>-->
 			<?php 
 			if($_SESSION!='undefine')
 			if(!empty($_SESSION["login_user"]))
 			{
 				echo $_SESSION['login_user'];
-				echo "<button onclick='getLogoutPage()'>logout</button>";
+				echo "<button class='btn btn-outline-secondary' type='button' onclick='getLogoutPage()'>logout</button>";
 			}
-			else
-			{
-				echo "<button onclick='getLoginPage()'>login</button>";
-				echo "<button onclick='getRegistrPage()'>registrate</button>";
-			}
+			//else
+			//{
+				//echo "<div class='logbutt'><button class='btn btn-outline-secondary' type='button' onclick='getLoginPage()'>login</button></div>";
+				//echo "<div class='logbutt'><button class='btn btn-outline-secondary' type='button' onclick='getRegistrPage()'>registrate</button></div>";
+			//}
 			?>
 		</div>
     </header>

@@ -9,12 +9,11 @@ function getChart()
   
   if(document.getElementById("rFilW").checked)
     {
-      connectDateB=d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate();
-      var bufd = new Date(); 
-      bufd.setTime(Date.now()-604800000);
-      connectDateA=bufd.getFullYear()+'-'+(bufd.getMonth()+1)+'-'+(bufd.getDate());
-
-    }
+		connectDateB=d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate();
+		var bufd = new Date(); 
+		bufd.setTime(Date.now()-604800000);
+		connectDateA=bufd.getFullYear()+'-'+(bufd.getMonth()+1)+'-'+(bufd.getDate());
+	}
 
   if(document.getElementById("rFilM").checked)
     {
