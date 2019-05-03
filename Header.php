@@ -16,7 +16,7 @@ session_start();
 	<header class="container-fluid" id="header">
 	 	<p><h1 class="h1">Scanner statistics</h1>
 		We will provide info about your scanner</p>
-		<div>
+		<div id="login">
 			<?php 
 			if($_SESSION!='undefine')
 			if(!empty($_SESSION["login_user"]))

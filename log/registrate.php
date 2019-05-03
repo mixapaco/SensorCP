@@ -48,13 +48,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
  ?>
 <form action="log/registrate.php" method="post">
 	<p>
-		Name:<input type="text" name="username">
+		Name:<input type="text" onchange='textInputFilter(this)' name="username">
 	</p>
 	<p>
-		Password:<input type="text" name="password">
+		Password:<input type="password" onchange='textInputFilter(this)' name="password">
 	</p>
    <p>
-      Repeat password:<input type="text" name="password2">
+      Repeat password:<input type="password" onchange='textInputFilter(this)' name="password2">
    </p>
 	<input class='inp rig' type="submit">
 </form>
