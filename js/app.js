@@ -225,7 +225,7 @@ function textInputFilter(e)
      var alet = false;
     for (var i = 0; i <= e.value.length - 1; i++) {
      
-      if (e.value[e.value.length-1].match(/[A-Za-z0-9]/)==null) 
+      if (e.value[e.value.length-1].match(/[A-Za-z0-9_]/)==null) 
       {
         alet = true;
      var temp = e.value;
@@ -233,7 +233,6 @@ function textInputFilter(e)
      }
       else{
         
-        // console.log("");
       }
    }
    if (alet){alert("Wrong input: please enter a-z/A-Z/0-9");}

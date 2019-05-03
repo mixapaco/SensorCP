@@ -9,7 +9,7 @@
     <div id="in" class="form-group" >
 		<div class="ex">
 			<div class="med"><label for="inputrec">Id</label></div>
-			<div><input type="text" class="form-control" id="inputrec"  placeholder = "Enter your id">
+			<div><input type="text" class="form-control" id="inputrec"  placeholder = "Enter your id" onchange='textInputFilter(this)'>
 			</div>
 		</div>
 		<div class="ex">
