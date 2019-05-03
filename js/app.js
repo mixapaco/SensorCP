@@ -73,7 +73,7 @@ function getChart()
 
     var chartdata = 
     {
-      labels: ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"], //dat,
+      labels: dat,
       datasets : 
       [{
         label: 'Chart',
@@ -139,6 +139,41 @@ function getChart()
     } 
     if(document.getElementById("rFilM").checked)
     {
+      console.log(value);
+      var tempDate = dat;
+      var tempVal= [12];
+      for (var i = 0; i < 12; i++) {
+        tempVal[i] =0;
+      }
+      //tempVal={0};
+      for (var i = tempDate.length - 1; i >= 0; i--) {
+        tempVal[parseInt(tempDate[i].substr(5,2))-1] +=parseInt(value[i]);
+        //console.log(parseInt(tempDate[i].substr(5,2)));
+
+      }
+      dat = tempDate;
+      value = tempVal;
+      chartdata = 
+    {
+      labels: dat,
+      datasets : 
+      [{
+        label: 'Chart',
+        backgroundColor: 'rgba(51,255,102,1)',
+        borderColor: 'rgba(200, 200, 200, 0.75)',
+        hoverBackgroundColor: 'rgba(200, 200, 200, 1)',
+        hoverBorderColor: 'rgba(200, 200, 200, 1)',
+        data: value
+      }]
+    };
+      console.log(dat);
+      console.log(value);
+            console.log(chartdata);
+
+     // chartdata.datasets.data=value;
+      console.log(chartdata);
+      
+      chartdata.labels = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
       barGraph.options.scales.xAxes = 
       [
         {
@@ -172,7 +207,9 @@ function getChart()
       }
       
       barGraph.data=chartdata;
+      console.log(barGraph.data);
       barGraph.update();
+      console.log(barGraph.data);
     },
       error: function(data) 
       {
