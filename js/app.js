@@ -67,23 +67,103 @@ function getChart()
         dat.push(data[i].cdate);
         value.push(data[i].Value);
       }
+      //console.log(dat);
+      dat.sort();
+
+
+    var chartdata = 
+    {
+      labels: dat,
+      datasets : 
+      [{
+        label: 'Chart',
+        backgroundColor: 'rgba(51,255,102,1)',
+        borderColor: 'rgba(200, 200, 200, 0.75)',
+        hoverBackgroundColor: 'rgba(200, 200, 200, 1)',
+        hoverBorderColor: 'rgba(200, 200, 200, 1)',
+        data: value
+      }]
+    };
       
-      var chartdata = {
-        labels: dat,
-        datasets : [
-          {
-            label: 'Chart',
-            backgroundColor: 'rgba(51,255,102,1)',
-            borderColor: 'rgba(200, 200, 200, 0.75)',
-            hoverBackgroundColor: 'rgba(200, 200, 200, 1)',
-            hoverBorderColor: 'rgba(200, 200, 200, 1)',
-            data: value
-          }
-        ]
-      };
+    if(document.getElementById("rFilW").checked)
+    {
+      
+      chartdata.datasets =
+      [
+        {
+        label: 'Chart',
+        backgroundColor: 'rgba(251,255,102,1)',
+        borderColor: 'rgba(200, 200, 200, 0.75)',
+        hoverBackgroundColor: 'rgba(200, 200, 200, 1)',
+        hoverBorderColor: 'rgba(200, 200, 200, 1)',
+        data: value},
+        {
+        label: 'Chart2',
+        backgroundColor: 'rgba(251,25,102,1)',
+        borderColor: 'rgba(200, 200, 200, 0.75)',
+        hoverBackgroundColor: 'rgba(200, 200, 200, 1)',
+        hoverBorderColor: 'rgba(200, 200, 200, 1)',
+        data: value}
+      ];
+      barGraph.options=
+        
+      {
+        scales: 
+        {
+          yAxes: 
+          [{
+            stacked: true,
+            ticks: 
+            {
+              beginAtZero: true
+            }
+          }],
+          xAxes: 
+          [{
+            stacked: true,
+            ticks: 
+            {
+              beginAtZero: true
+            }, 
+            time: 
+            {
+              displayFormats: {'day': 'MM/YY'},
+              tooltipFormat: 'DD/MM/YY',
+              unit: 'week',
+            }
+          }]
+        }
+      }
       
 
+    } 
+    if(document.getElementById("rFilM").checked)
+    {
+      barGraph.options.scales.xAxes = 
+      [
+        {
+          stacked: true, 
+          time: 
+          {
+            unit: 'month',
+          }
+        }
+      ]
+
+    }      
+    if(document.getElementById("rFilY").checked)
+    {
+      barGraph.options.scales.xAxes = [{
+            stacked: true, 
+            time: 
+            {
+              unit: 'year',
+            }
+          }]
+      console.log(barGraph.options.scales.xAxes);
+    }
     
+    console.log(chartdata);
       if(barGraph===undefined)
       {
         createChartObj(chartdata);
