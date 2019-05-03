@@ -6,26 +6,75 @@
 #header.container-fluid{
 	text-align: center;
 }
-#in.form-group{
+#loginform.from-group{
+	display:flex;
+	justify-content:center;
+}
+
+.logbutt{
+	margin:15px;
+}
+#flex-wrap.form-group{
 	display:flex;
 	justify-content:space-around;
 	flex-wrap:wrap;
 }
-.med{
-	min-width:100px;
+.labelforinput{
+	min-width:82 px;
+	height:30px;
+
 }
-.ex{
+.same-input{
+	width:182px;
+	height:30px;
+}
+#nav{
 	display:flex;
+	justify-content:center;
+}
+.logrows{
+	display:flex;
+	justify-content:center;
+	margin-bottom:10px;
+}
+.temp{
+	width:100px;
+}
+#login{
+min-height:200px;
+}
+.llog{
+	padding-top:0em;
+}
+.rows{
+	display:flex;
+	margin-bottom:10px;
+	margin-left:5px;
+	margin-right:5px;
+}
+#form.container-fluid{
+	padding-top:15px;
+	padding-bottom:15px;
+	border-top: 1px solid grey;
+	border-bottom: 1px solid grey;
+	margin-bottom:5px;
+	margin-top:5px;
+}
+#forradio.form-group{
+	display:flex;
+	justify-content:center;
+}
+#requestbutton{
+	display:flex;
+	justify-content: center;
+}
+#confirm{
+	width:75px;
 }
 #footer.container-fluid{
 	text-align: center;
 }
-   @media screen and (max-device-width: 600px) {
-    .form-group {
-		    justify-content: start !important;
-	}
-   }
-
+  
 
 
 

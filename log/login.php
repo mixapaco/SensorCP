@@ -46,13 +46,30 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 }
  ?>
 <form action="log/login.php" method="post">
-	<p>
-		Name:<input type="text" onchange='textInputFilter(this)' name="username">
-	</p>
-	<p>
-		Password:<input type="password" onchange='textInputFilter(this)' name="password">
-	</p>
-	<input class='inp rig' type='submit'>
+	<div id="loginform" class="form-group">
+		<div class="logrows">
+			<div class="labelforinput">	
+				<label class="llog" for="inputrec">Name</label>
+			</div>
+			<div>
+				<input class="form-control same-input" type="text" onchange='textInputFilter(this)' name="username">
+			</div>
+		</div>
+		<div class="logrows">
+			<div class="labelforinput">	
+				<label class="llog" for="inputrec">Password</label>
+			</div>
+			<div>
+				<input class="form-control same-input" type="password" onchange='textInputFilter(this)' name="password">
+			</div>
+		</div>
+		<div class="logrows">
+			<input class="btn btn-outline-secondary" class='inp rig' type='submit'>
+		</div>
+	</div>
+
+	
+	
 </form>
 
 <?php  ?>
