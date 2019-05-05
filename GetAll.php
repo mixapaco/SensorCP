@@ -9,7 +9,6 @@
 		<div class="rows">
 			<div class="labelforinput">	
 				<label for="inputrec">Id</label>
-
 			</div>
 			<div>
 				<input id="inputrec" class="form-control same-input" type="text" placeholder = "Enter your id">

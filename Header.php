@@ -1,5 +1,5 @@
 <?php 
-session_start();
+	session_start();
 ?>
 <!DOCTYPE html>
 <html>
@@ -10,18 +10,17 @@ session_start();
 	<link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
 	<link rel="stylesheet" href="css/style.css">
-	
 </head>
 <body>
-	<header class="container-fluid" id="header">
+	<div id="main">
+	<header id="header" class="container-fluid" >
 	 	<p><h1 class="h1">Scanner statistics</h1>
-		We will provide info about your scanner</p>
+		<div id="border-bot" class="container">We will provide info about your scanner</div></p>
 		 
 		<!--<button class='btn btn-outline-secondary' type='button' onclick='getLogoutPage()'>logout</button>-->
 			<?php 
 			if($_SESSION!='undefine')
-			if(!empty($_SESSION["login_user"]))
-			{
+			if(!empty($_SESSION["login_user"])) {
 				echo $_SESSION['login_user'];
 				echo "<button class='btn btn-outline-secondary' type='button' onclick='getLogoutPage()'>logout</button>";
 			}
@@ -31,6 +30,6 @@ session_start();
 				//echo "<div class='logbutt'><button class='btn btn-outline-secondary' type='button' onclick='getRegistrPage()'>registrate</button></div>";
 			//}
 			?>
-		</div>
+		
     </header>
-	<div class="container-fluid">
+	<div id="content" class="container-fluid">

@@ -5,46 +5,35 @@
 <?php 
 
 if($_SERVER["REQUEST_METHOD"] == "POST") {
-      // username and password sent from form 
-   if(!empty($_POST["username"])&!empty($_POST["password"]))
+   if(!empty($_POST["username"]) & !empty($_POST["password"]))
    {
-      $db = mysqli_connect($host, $user, $password, $database) 
-        or die("Ошибка " . mysqli_error($link));
+      $db = mysqli_connect($host, $user, $password, $database) or die("Ошибка " . mysqli_error($link));
       
       $myusername = mysqli_real_escape_string($db,$_POST['username']);
       $mypassword = mysqli_real_escape_string($db,$_POST['password']); 
-      $myusernamebuf=$myusername;
-      $myusername=hash('md5', $myusername);
-
-      $mypassword=hash('md5', $mypassword);
-
-
+      
+      $myusernamebuf = $myusername;
+      $myusername = hash('md5', $myusername);
+      $mypassword = hash('md5', $mypassword);
 
       $sql = "SELECT id FROM users WHERE username = '$myusername' and passcode = '$mypassword'";
-      $result = mysqli_query($db,$sql);
-      $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
+      $result = mysqli_query($db, $sql);
+      $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
       $active = $row['id'];
       
       $count = mysqli_num_rows($result);
       
       // If result matched $myusername and $mypassword, table row must be 1 row
-
-
-       
-
       if($count == 1) {
-         
          $_SESSION['login_user'] = $myusernamebuf;
-         
          header("location: ../GetAll.php");
       }
-      else 
-      {
+      else {
          $error = "Your Login Name or Password is invalid";
       }
    }
 }
- ?>
+?>
 <form action="log/login.php" method="post">
 	<div id="loginform" class="form-group">
 		<div class="logrows">
@@ -64,12 +53,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 			</div>
 		</div>
 		<div class="logrows">
-			<input class="btn btn-outline-secondary" class='inp rig' type='submit'>
+			<input class="btn btn-outline-secondary inp rig temp1" type='submit'>
 		</div>
 	</div>
-
-	
-	
 </form>
 
 <?php  ?>

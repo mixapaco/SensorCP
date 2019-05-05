@@ -2,28 +2,46 @@
 	margin: 0;
 	padding: 0;
 }
-
+html,body{
+	height: 100%;
+}
+#main{
+	
+}
 #header.container-fluid{
 	text-align: center;
+	padding-bottom: 10px;
+}
+#border-bot.container{
+	padding-bottom: 20px;
+	border-bottom: 1px solid grey;
 }
 #loginform.from-group{
 	display:flex;
 	justify-content:center;
 }
-
+#login.container{
+	padding-top:20px;
+}
 .logbutt{
 	margin:15px;
 }
+#content.container-fluid{
+	
+}
+
 #flex-wrap.form-group{
 	display:flex;
-	justify-content:space-around;
+	justify-content:center;
 	flex-wrap:wrap;
 }
 .labelforinput{
-	min-width:82 px;
+	width:85px;
 	height:30px;
+	padding-top:2px;
 
 }
+
 .same-input{
 	width:182px;
 	height:30px;
@@ -36,12 +54,13 @@
 	display:flex;
 	justify-content:center;
 	margin-bottom:10px;
+	padding-top:10px;
 }
 .temp{
 	width:100px;
 }
 #login{
-min-height:200px;
+	min-height:200px;
 }
 .llog{
 	padding-top:0em;
@@ -52,13 +71,19 @@ min-height:200px;
 	margin-left:5px;
 	margin-right:5px;
 }
+#mytable{
+	display: flex;
+	justify-content: center;
+}
+
 #form.container-fluid{
-	padding-top:15px;
-	padding-bottom:15px;
+	
+	padding-top: 15px;
+	padding-bottom: 15px;
 	border-top: 1px solid grey;
 	border-bottom: 1px solid grey;
-	margin-bottom:5px;
-	margin-top:5px;
+	margin-bottom: 5px;
+	margin-top: 5px;
 }
 #forradio.form-group{
 	display:flex;
@@ -68,12 +93,30 @@ min-height:200px;
 	display:flex;
 	justify-content: center;
 }
+.cell{
+	width: 100px;
+	font-size: 15px;
+	text-align: center;
+}
 #confirm{
 	width:75px;
 }
 #footer.container-fluid{
+	padding-top:20px;
 	text-align: center;
+	
 }
+@media screen and (max-device-width: 500px) {
+    .cell {
+    	font-size: 13px;
+    }
+}
+@media screen and (max-device-width: 350px) {
+    .h1 {
+    	font-size: 1.75	em;
+    }
+}
+
   
 
 
