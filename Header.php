@@ -23,12 +23,12 @@
     
 			<?php 
 			if(!empty($_SESSION))
-			if(!empty($_SESSION["login_user"])){ 
-        $way='log/logout.php';
-        echo "<form action='$way'>";
-      	echo $_SESSION['login_user'];
-				echo "<button class='btn btn-outline-secondary' type='submit' >logout</button>";
-        echo '</form>';
+			if(!empty($_SESSION["login_user"])) { 
+        		$way = 'log/logout.php';
+        		echo "<form action='$way'>";
+        		echo "<div class='hello h6'>"."Hello, ".$_SESSION['login_user']."!"."</div>";
+      			echo "<button class='btn btn-outline-secondary' type='submit'>logout</button>";
+        		echo '</form>';
 			}
 			//else
 			//{

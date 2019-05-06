@@ -38,7 +38,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 	<div id="loginform" class="form-group">
 		<div class="logrows">
 			<div class="labelforinput">	
-				<label class="llog" for="inputrec">Name</label>
+				<label class="llog" for="inputrec">Логін</label>
 			</div>
 			<div>
 				<input class="form-control same-input" type="text" onchange='textInputFilter(this)' name="username">
@@ -46,14 +46,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 		</div>
 		<div class="logrows">
 			<div class="labelforinput">	
-				<label class="llog" for="inputrec">Password</label>
+				<label class="llog" for="inputrec">Пароль</label>
 			</div>
 			<div>
 				<input class="form-control same-input" type="password" onchange='textInputFilter(this)' name="password">
 			</div>
 		</div>
 		<div class="logrows">
-			<input class="btn btn-outline-secondary inp rig temp1" type='submit'>
+			<input class="btn btn-outline-secondary inp rig temp1" type='submit' value="Увійти">
 		</div>
 	</div>
 </form>

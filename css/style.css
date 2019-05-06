@@ -30,6 +30,10 @@ html,body{
 #content.container-fluid{
 	
 }
+.hello{
+	padding-bottom: 10px;
+	text-align: center;
+}
 
 #flex-wrap.form-group{
 	display:flex;
@@ -37,7 +41,7 @@ html,body{
 	flex-wrap:wrap;
 }
 .labelforinput{
-	width:130px;
+	width:150px;
 	height:30px;
 	padding-top:2px;
 }
@@ -57,7 +61,7 @@ html,body{
 	padding-top:10px;
 }
 .temp{
-	width:100px;
+	width:150px;
 }
 #login{
 	min-height:200px;
@@ -112,8 +116,8 @@ html,body{
     }
 }
 @media screen and (max-device-width: 350px) {
-    .h1 {
-    	font-size: 1.75	em;
+    h1.h1 {
+    	font-size: 25px;
     }
 }
 
