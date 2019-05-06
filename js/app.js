@@ -43,6 +43,7 @@ function getChart()
     method: "GET",
     success: function(data) 
     {
+      
       data = JSON.parse(data);
       addTable(data);
 
@@ -228,7 +229,7 @@ function createChartObj(chartdata) {
 }
 
 function getLoginPage() {
-  var ur="http://localhost/SensorCP/log/login.php";
+  var ur = "http://localhost/SensorCP/log/login.php";
   $.ajax({
     url: ur,
     method: "POST",

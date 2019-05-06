@@ -3,7 +3,6 @@
    require_once '../connection.php';
 ?>
 <?php 
-
 if($_SERVER["REQUEST_METHOD"] == "POST") {
    if(!empty($_POST["username"]) & !empty($_POST["password"]))
    {
@@ -16,16 +15,17 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
       $myusername = hash('md5', $myusername);
       $mypassword = hash('md5', $mypassword);
 
-      $sql = "SELECT id FROM users WHERE username = '$myusername' and passcode = '$mypassword'";
+      $sql = "SELECT UserId FROM users WHERE username = '$myusername' and passcode = '$mypassword'";
       $result = mysqli_query($db, $sql);
       $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-      $active = $row['id'];
+      $active = $row['UserId'];
       
       $count = mysqli_num_rows($result);
       
       // If result matched $myusername and $mypassword, table row must be 1 row
       if($count == 1) {
          $_SESSION['login_user'] = $myusernamebuf;
+         $_SESSION['userId'] = $row['UserId'];
          header("location: ../GetAll.php");
       }
       else {
