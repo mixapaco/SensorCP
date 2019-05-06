@@ -248,8 +248,8 @@ function getLogoutPage() {
     url: ur,
     method: "POST",
     success: function(data) {
-      var loginH = document.getElementById("login");
-      loginH.innerHTML = "<button onclick = 'getLoginPage()'>login</button>";
+      //var loginH = document.getElementById("login");
+      //loginH.innerHTML = "<button onclick = 'getLoginPage()'>login</button>";
     },
     error: function(data) {
       console.log(data);

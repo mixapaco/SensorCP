@@ -41,7 +41,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
       {
          $sql = "INSERT INTO users (username,passcode) VALUES('$myusername','$mypassword')";
          $result = mysqli_query($db,$sql);
-         header("location: ../GetAll.php");
+         header("location: ../index.php");
       }
    }
 }

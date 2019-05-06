@@ -2,6 +2,7 @@
    session_start();
    
    if(session_destroy()) {
-      header("Location: ../index.php");
+   	$way='../index.php';
+      header("Location: $way");
    }
 ?>

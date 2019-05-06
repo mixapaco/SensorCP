@@ -1,5 +1,7 @@
 <?php 
 	session_start();
+  define('SensorCP/', __DIR__);
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -18,11 +20,15 @@
 		<div id="border-bot" class="container">We will provide info about your scanner</div></p>
 		 
 		<!--<button class='btn btn-outline-secondary' type='button' onclick='getLogoutPage()'>logout</button>-->
+    
 			<?php 
-			if($_SESSION!='undefine')
-			if(!empty($_SESSION["login_user"])) {
-				echo $_SESSION['login_user'];
-				echo "<button class='btn btn-outline-secondary' type='button' onclick='getLogoutPage()'>logout</button>";
+			if(!empty($_SESSION))
+			if(!empty($_SESSION["login_user"])){ 
+        $way='log/logout.php';
+        echo "<form action='$way'>";
+      	echo $_SESSION['login_user'];
+				echo "<button class='btn btn-outline-secondary' type='submit' >logout</button>";
+        echo '</form>';
 			}
 			//else
 			//{
