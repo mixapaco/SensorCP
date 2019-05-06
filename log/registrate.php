@@ -64,11 +64,19 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             <input class="form-control same-input" type="password" onchange='textInputFilter(this)' name="password">
          </div>
       </div>
+	  <div class="logrows">
+         <div class="labelforinput">   
+            <label class="llog" for="inputrec">Repeat Password</label>
+         </div>
+         <div>
+            <input class="form-control same-input" type="password" onchange='textInputFilter(this)' name="password2">
+         </div>
+      </div>
       <div class="logrows">
-         <input class="btn btn-outline-secondary inp rig temp1" type='submit'>
+         <input class="btn btn-outline-secondary temp1" type='submit'>
       </div>
    </div>
-	<p>
+	<!--<p>
 		Name:<input type="text" onchange='textInputFilter(this)' name="username">
 	</p>
 	<p>
@@ -77,7 +85,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
    <p>
       Repeat password:<input type="password" onchange='textInputFilter(this)' name="password2">
    </p>
-	<input class='inp rig' type="submit">
+	<input class='inp rig' type="submit">-->
 </form>
 
 <?php  ?>

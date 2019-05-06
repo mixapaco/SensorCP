@@ -17,7 +17,7 @@ function getChart()
   if(document.getElementById("rFilM").checked) {
     connectDateB = d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate();
     var bufd = new Date(); 
-    bufd.setTime(Date.now()-43800*60*1000);
+    bufd.setTime(Date.now()-43800 * 60 * 1000);
     connectDateA = bufd.getFullYear() + '-' + (bufd.getMonth() + 1) + '-' + (bufd.getDate());
   }
   
