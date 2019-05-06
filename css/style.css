@@ -19,6 +19,7 @@ html,body{
 #loginform.from-group{
 	display:flex;
 	justify-content:center;
+	background-color:grey;
 }
 #login.container{
 	padding-top:20px;
@@ -36,10 +37,9 @@ html,body{
 	flex-wrap:wrap;
 }
 .labelforinput{
-	width:85px;
+	width:130px;
 	height:30px;
 	padding-top:2px;
-
 }
 
 .same-input{
