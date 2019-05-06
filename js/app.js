@@ -64,7 +64,7 @@ function getChart()
         labels: dat,
         datasets : [{
           label: 'Графік',
-          backgroundColor: 'rgba(198,198,198,1)',
+          backgroundColor: 'rgba(51,255,102,1)',
           borderColor: 'rgba(200, 200, 200, 0.75)',
           hoverBackgroundColor: 'rgba(200, 200, 200, 1)',
           hoverBorderColor: 'rgba(200, 200, 200, 1)',
