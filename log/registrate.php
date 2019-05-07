@@ -1,5 +1,6 @@
 <?php 
-   require_once '../connection.php';
+   require_once $_SERVER['DOCUMENT_ROOT'].'/SensorCP/connection.php';
+
 ?>
 <?php 
    if($_SERVER["REQUEST_METHOD"] == "POST") {

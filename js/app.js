@@ -1,3 +1,4 @@
+var ipUrl = "192.168.0.190";
 var barGraph;
 var d = new Date();
 $(document).ready(getChart());
@@ -32,7 +33,7 @@ function getChart()
     connectId = 1;
   }
   
-  var ur = "http://localhost/SensorCP/GetJson.php?id="+connectId;
+  var ur = "http://"+ipUrl+"/SensorCP/GetJson.php?id="+connectId;
   
   if(connectDateA != null & connectDateB != null) {
     ur += "&cdatea=" + connectDateA + "&cdateb=" + connectDateB;
@@ -229,7 +230,7 @@ function createChartObj(chartdata) {
 }
 
 function getLoginPage() {
-  var ur = "http://localhost/SensorCP/log/login.php";
+  var ur = "http://"+ipUrl+"/SensorCP/log/login.php";
   $.ajax({
     url: ur,
     method: "POST",
@@ -244,7 +245,7 @@ function getLoginPage() {
 }
 
 function getLogoutPage() {
-  var ur = "http://localhost/SensorCP/log/logout.php";
+  var ur = "http://"+ipUrl+"/SensorCP/log/logout.php";
   $.ajax({
     url: ur,
     method: "POST",
@@ -259,7 +260,7 @@ function getLogoutPage() {
 }
 
 function getRegistrPage() {
-  var ur = "http://localhost/SensorCP/log/registrate.php";
+  var ur = "http://"+ipUrl+"/SensorCP/log/registrate.php";
   $.ajax({
     url: ur,
     method: "POST",

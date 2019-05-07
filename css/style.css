@@ -124,11 +124,19 @@ html,body{
 
 @media screen and (max-device-width: 500px) {
     .cell {
-    	font-size: 5px;
+    	font-size: 13px;
     }
 }
 @media screen and (max-device-width: 350px) {
     h1.h1 {
     	font-size: 25px;
+    }
+    #nav {
+    	display: block;
+    	justify-content: center;
+    }
+    .logbutt{
+    	display: flex;
+    	justify-content: center;
     }
 }
