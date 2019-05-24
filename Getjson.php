@@ -1,7 +1,7 @@
 <?php 
     session_start();
     require_once 'connection.php';
-<<<<<<< HEAD
+
     if ( !empty($_GET["id"])) {  
         $id=$_GET["id"];   
     } 
