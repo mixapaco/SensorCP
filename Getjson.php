@@ -1,40 +1,32 @@
 <?php 
     require_once 'connection.php';
-    //check if id not null
-    if ( !empty($_GET["id"])) 
-    {  
+    if ( !empty($_GET["id"])) {  
         $id=$_GET["id"];   
     } 
-    else
-    {
+    else {
         $id=1;
     }
-    //check if date not null
-    if(!empty($_GET["cdatea"])&!empty($_GET["cdateb"]))
-    {
+    
+    if(!empty($_GET["cdatea"])&!empty($_GET["cdateb"])) {
         $cdatea=$_GET["cdatea"];
         $cdateb=$_GET["cdateb"];
 
-        $query ="SELECT Number, Id, Value, cdate FROM sensors WHERE  id=$id and cdate between '$cdatea' and '$cdateb' ";
+        $query ="SELECT Number, Id, Value, cdate FROM sensors WHERE  id=$id and cdate between '$cdatea' and '$cdateb' ORDER BY cdate";
         $link = mysqli_connect($host, $user, $password, $database) 
         or die("Ошибка " . mysqli_error($link)); 
         $result = mysqli_query($link, $query) or die("Ошибка " . mysqli_error($link)); 
     }
-    else
-    {
-        $query ="SELECT Number, Id, Value, cdate FROM sensors WHERE id=$id";
+    else {
+        $query = "SELECT Number, Id, Value, cdate FROM sensors WHERE id=$id ORDER BY cdate";
         $link = mysqli_connect($host, $user, $password, $database) 
         or die("Ошибка " . mysqli_error($link)); 
         $result = mysqli_query($link, $query) or die("Ошибка " . mysqli_error($link));  
     }
 
-	//push data 
     $data[]=array();
-    if($result)
-    {
+    if($result) {
         $rows = mysqli_num_rows($result); 
-        foreach ($result as $row)
-        {
+        foreach ($result as $row) {
             $data[]=$row;
         }
         mysqli_free_result($result);

@@ -13,7 +13,6 @@
 <input type=submit >
 </form>
 
-
 <?php 
 require_once 'connection.php';
 $mysqli = new mysqli($host, $user, $password, $database);

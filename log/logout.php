@@ -3,6 +3,6 @@
    
    if(session_destroy()) {
    	$way='../index.php';
-      header("Location: $way");
+    header("Location: $way");
    }
 ?>

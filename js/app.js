@@ -1,31 +1,47 @@
 var barGraph;
 var d = new Date();
+
+class DateOb{
+  constructor(dat,val){
+    this.dateprop=dat;
+    this.valprop=val;
+  }
+}
+
 $(document).ready(getChart());
-function getChart()
-{
+function getChart() {
   var connectId = document.getElementById("inputrec").value;
   var connectDateA = document.getElementById("inputdatea").value;
   var connectDateB = document.getElementById("inputdateb").value;
   
   if(document.getElementById("rFilW").checked) {
-		connectDateB = d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate();
+		
 		var bufd = new Date(); 
-		bufd.setTime(Date.now() - 604800000);
-		connectDateA = bufd.getFullYear() + '-' + (bufd.getMonth() + 1) + '-' + (bufd.getDate());
+		bufd.setTime(Date.now()+86400000);
+
+    connectDateB = bufd.getFullYear() + '-' + (bufd.getMonth() + 1) + '-' + (bufd.getDate());
+    bufd.setTime(Date.now());
+    if(bufd.getDay()==0){bufd.setTime(Date.now() - 7 * 86400000);
+    }
+    else{
+      bufd.setTime(Date.now() - bufd.getDay()*86400000);
+    }
+    
+    connectDateA = bufd.getFullYear() + '-' + (bufd.getMonth() + 1) + '-' + bufd.getDate();
+    console.log(connectDateA,connectDateB);
+
 	}
 
   if(document.getElementById("rFilM").checked) {
-    connectDateB = d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate();
-    var bufd = new Date(); 
-    bufd.setTime(Date.now()-43800 * 60 * 1000);
-    connectDateA = bufd.getFullYear() + '-' + (bufd.getMonth() + 1) + '-' + (bufd.getDate());
+    connectDateB = d.getFullYear() + '-' + (d.getMonth() + 1) + '-31';
+    //var bufd = new Date(); 
+    //bufd.setTime(Date.now()-43800 * 60 * 1000);
+    connectDateA = d.getFullYear() + '-' + (d.getMonth() + 1) + '-01';
   }
   
   if(document.getElementById("rFilY").checked) {
-    connectDateB = d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate();
-    var bufd = new Date(); 
-    bufd.setTime(Date.now() - 43800 * 60 * 1000 * 12);
-    connectDateA = bufd.getFullYear() + '-' + (bufd.getMonth() + 1) + '-' + (bufd.getDate());
+    connectDateB = d.getFullYear()+'-12-31';
+    connectDateA = d.getFullYear()+'-01-01';
   }
   
   if(connectId == null) {
@@ -56,40 +72,72 @@ function getChart()
         dat.push(data[i].cdate);
         value.push(data[i].Value);
       }
-      
-      //console.log(dat);
-      dat.sort();
-      
-      var chartdata = {
-        labels: dat,
-        datasets : [{
-          label: 'Графік',
-          backgroundColor: 'rgba(51,255,102,1)',
-          borderColor: 'rgba(200, 200, 200, 0.75)',
-          hoverBackgroundColor: 'rgba(200, 200, 200, 1)',
-          hoverBorderColor: 'rgba(200, 200, 200, 1)',
-          data: value
-        }]
-      };
-      
+      var chartdata;
+      if(!document.getElementById("rFilW").checked & !document.getElementById("rFilM").checked & 
+      !document.getElementById("rFilY").checked){
+        console.log(dat);
+        dat.sort();
+        chartdata = {
+          labels: dat,
+          datasets : [{
+            label: 'Графік',
+            backgroundColor: 'rgba(51,255,102,1)',
+            borderColor: 'rgba(200, 200, 200, 0.75)',
+            hoverBackgroundColor: 'rgba(200, 200, 200, 1)',
+            hoverBorderColor: 'rgba(200, 200, 200, 1)',
+            data: value
+          }]
+        };
+      }
+
       if(document.getElementById("rFilW").checked) {
-        chartdata.datasets = [{
-          label: 'Chart',
-          backgroundColor: 'rgba(251,255,102,1)',
-          borderColor: 'rgba(200, 200, 200, 0.75)',
-          hoverBackgroundColor: 'rgba(200, 200, 200, 1)',
-          hoverBorderColor: 'rgba(200, 200, 200, 1)',
-          data: value
-        },
-        {
-          label: 'Chart2',
-          backgroundColor: 'rgba(251,25,102,1)',
-          borderColor: 'rgba(200, 200, 200, 0.75)',
-          hoverBackgroundColor: 'rgba(200, 200, 200, 1)',
-          hoverBorderColor: 'rgba(200, 200, 200, 1)',
-          data: value
-        }];
-      
+        var dataobject = [];
+
+        for (var i = dat.length - 1; i >= 0; i--) {
+          dataobject[i] = {
+            dateprop: dat.pop(),
+            valprop : value.pop(),
+          };
+        }
+
+        var bufd = new Date();
+        var datTemp = [];
+        for (var i =0 ; i <= dataobject.length - 1; i++) {
+          bufd.setFullYear(dataobject[i].dateprop.substr(0,4),dataobject[i].dateprop.substr(5,2)-1,
+          dataobject[i].dateprop.substr(8,2));
+          if (bufd.getDay()==0) {
+            datTemp[6] = dataobject[i].valprop;
+          }
+          else{
+            datTemp[bufd.getDay()-1] = dataobject[i].valprop;
+          }
+        }
+        
+        var buf = [];
+        bufd.setTime(Date.now());
+        var days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+        
+        chartdata = {
+          labels: dat,//dataobject.dateprop,
+          datasets: [{
+            label: 'Chart',
+            backgroundColor: 'rgba(51,255,102,1)',
+            borderColor: 'rgba(200, 200, 200, 0.75)',
+            hoverBackgroundColor: 'rgba(200, 200, 200, 1)',
+            hoverBorderColor: 'rgba(200, 200, 200, 1)',
+            data: datTemp//dataobject.valprop
+          }]
+        };
+        
+        chartdata.labels = days;//["Sun ","Mon ","Tue ","Wed ","Thu ","Fri ","Sat "];
+        // {
+        //   label: 'Chart2',
+        //   backgroundColor: 'rgba(251,25,102,1)',
+        //   borderColor: 'rgba(200, 200, 200, 0.75)',
+        //   hoverBackgroundColor: 'rgba(200, 200, 200, 1)',
+        //   hoverBorderColor: 'rgba(200, 200, 200, 1)',
+        //   data: value
+        // }
         barGraph.options = {
           scales: {
             yAxes: [{
@@ -114,17 +162,18 @@ function getChart()
       } 
       
       if(document.getElementById("rFilM").checked) {
-        console.log(value);
         var tempDate = dat;
-        var tempVal= [12];
-      
-        for (var i = 0; i < 12; i++) {
+        var tempVal=[] ;
+        
+        var bufd = new Date(); 
+        bufd.setTime(Date.now());
+        bufd.setFullYear(dat[0].substr(0,4),(dat[0].substr(5,2))-1,dat[0].substr(8,2));
+        
+        for (var i = 0; i < 30; i++) {
           tempVal[i] = 0;
         }
-        //tempVal={0};
         for (var i = tempDate.length - 1; i >= 0; i--) {
-          tempVal[parseInt(tempDate[i].substr(5,2)) - 1] += parseInt(value[i]);
-          //console.log(parseInt(tempDate[i].substr(5,2)));
+          tempVal[parseInt(tempDate[i].substr(8,2)) - 1] += parseInt(value[i]);
         }
       
         dat = tempDate;
@@ -141,14 +190,13 @@ function getChart()
           }]
         };
       
-        console.log(dat);
-        console.log(value);
-        console.log(chartdata);
+        var DaysInMonth = [];
+        for (var i = 0; i <= 30; i++) {
+          DaysInMonth[i]=i+1;
+        }
 
-        // chartdata.datasets.data=value;
-        console.log(chartdata);
-      
-        chartdata.labels = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+        chartdata.labels = DaysInMonth;
+        
         barGraph.options.scales.xAxes = [{
           stacked: true, 
           time: {
@@ -158,16 +206,45 @@ function getChart()
       }      
 
       if(document.getElementById("rFilY").checked) {
+        var tempDate = dat;
+        var tempVal= [12];
+        
+        var bufd = new Date(); 
+        bufd.setTime(Date.now());
+        bufd.setFullYear(dat[0].substr(0,4),(dat[0].substr(5,2)),dat[0].substr(8,2));
+
+        for (var i = 0; i < 12; i++) {
+          tempVal[i] = 0;
+        }
+        for (var i = tempDate.length - 1; i >= 0; i--) {
+          tempVal[parseInt(tempDate[i].substr(5,2)) - 1] += parseInt(value[i]);
+        }
+      
+        dat = tempDate;
+        value = tempVal;
+        chartdata = {
+          labels: dat,
+          datasets : [{
+            label: 'Chart',
+            backgroundColor: 'rgba(51,255,102,1)',
+            borderColor: 'rgba(200, 200, 200, 0.75)',
+            hoverBackgroundColor: 'rgba(200, 200, 200, 1)',
+            hoverBorderColor: 'rgba(200, 200, 200, 1)',
+            data: value
+          }]
+        };
+      
+        chartdata.labels = ["Jan "+bufd.getFullYear(),"Feb "+bufd.getFullYear(),"Mar "+bufd.getFullYear(),
+        "Apr "+bufd.getFullYear(),"May "+bufd.getFullYear(),"Jun "+bufd.getFullYear(),
+        "Jul "+bufd.getFullYear(),"Aug "+bufd.getFullYear(),"Sep "+bufd.getFullYear(),
+        "Oct "+bufd.getFullYear(),"Nov "+bufd.getFullYear(),"Dec "+bufd.getFullYear()];
         barGraph.options.scales.xAxes = [{
           stacked: true, 
           time: {
-            unit: 'year',
+            unit: 'month',
           }
         }]
-        console.log(barGraph.options.scales.xAxes);
       }
-    
-      console.log(chartdata);
 
       if(barGraph === undefined) {
         createChartObj(chartdata);
@@ -175,9 +252,7 @@ function getChart()
       }
      
       barGraph.data = chartdata;
-      console.log(barGraph.data);
       barGraph.update();
-      console.log(barGraph.data);
     },
       error: function(data) {
         console.log(data);
@@ -247,10 +322,7 @@ function getLogoutPage() {
   $.ajax({
     url: ur,
     method: "POST",
-    success: function(data) {
-      //var loginH = document.getElementById("login");
-      //loginH.innerHTML = "<button onclick = 'getLoginPage()'>login</button>";
-    },
+    success: function(data) {},
     error: function(data) {
       console.log(data);
     }
@@ -265,7 +337,6 @@ function getRegistrPage() {
     success: function(data) {
       var loginH = document.getElementById("login");
       loginH.innerHTML = data;
-      console.log(data);
     },
     error: function(data) {
       console.log(data);
@@ -274,8 +345,6 @@ function getRegistrPage() {
 }
 
 function textInputFilter(e) {
-  console.log(e.value);
-  console.log(e.value.length);
   if (e.value.length > 50) {
     console.log("Entered maximum length");
     var temp = e.value;

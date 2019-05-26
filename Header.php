@@ -18,24 +18,15 @@
 	<header id="header" class="container-fluid" >
 	 	<p><h1 class="h1">Scanner statistics</h1>
 		<div id="border-bot" class="container">We will provide info about your scanner</div></p>
-		 
-		<!--<button class='btn btn-outline-secondary' type='button' onclick='getLogoutPage()'>logout</button>-->
-    
 			<?php 
-			if(!empty($_SESSION))
-			if(!empty($_SESSION["login_user"])){ 
-        $way='log/logout.php';
-        echo "<form action='$way'>";
-      	echo $_SESSION['login_user'];
-				echo "<button class='btn btn-outline-secondary' type='submit' >logout</button>";
-        echo '</form>';
-			}
-			//else
-			//{
-				//echo "<div class='logbutt'><button class='btn btn-outline-secondary' type='button' onclick='getLoginPage()'>login</button></div>";
-				//echo "<div class='logbutt'><button class='btn btn-outline-secondary' type='button' onclick='getRegistrPage()'>registrate</button></div>";
-			//}
+			  if(!empty($_SESSION))
+			  if(!empty($_SESSION["login_user"])) { 
+          $way='log/logout.php';
+          echo "<form action='$way'>";
+      	  echo $_SESSION['login_user'];
+				  echo "<button class='btn btn-outline-secondary' type='submit' >logout</button>";
+          echo '</form>';
+			  }
 			?>
-		
-    </header>
+	</header>
 	<div id="content" class="container-fluid">
