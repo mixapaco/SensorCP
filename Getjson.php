@@ -1,5 +1,7 @@
 <?php 
+    session_start();
     require_once 'connection.php';
+<<<<<<< HEAD
     if ( !empty($_GET["id"])) {  
         $id=$_GET["id"];   
     } 
@@ -28,9 +30,10 @@
         $rows = mysqli_num_rows($result); 
         foreach ($result as $row) {
             $data[]=$row;
+
         }
         mysqli_free_result($result);
     }
-mysqli_close($link);
-print json_encode($data);
+    mysqli_close($link);
+    print json_encode($data);
 ?>

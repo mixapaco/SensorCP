@@ -2,10 +2,10 @@
 -- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Apr 24, 2019 at 03:11 PM
--- Server version: 10.1.38-MariaDB
--- PHP Version: 7.3.3
+-- Хост: 127.0.0.1
+-- Время создания: Май 06 2019 г., 14:56
+-- Версия сервера: 10.1.38-MariaDB
+-- Версия PHP: 7.3.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,91 +19,95 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `db`
+-- База данных: `db`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `sensors`
+-- Структура таблицы `sensors`
 --
 
 CREATE TABLE `sensors` (
   `Number` int(11) NOT NULL,
   `Id` int(11) DEFAULT NULL,
   `Value` int(11) DEFAULT NULL,
-  `cdate` date NOT NULL
+  `cdate` date NOT NULL,
+  `UserId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
--- Dumping data for table `sensors`
+-- Дамп данных таблицы `sensors`
 --
 
-INSERT INTO `sensors` (`Number`, `Id`, `Value`, `cdate`) VALUES
-(1, 1, 10, '2019-04-02'),
-(2, 1, 12, '2019-04-03'),
-(3, 1, 5, '2019-04-04'),
-(4, 2, 6, '2019-04-12'),
-(5, 2, 7, '2019-04-13'),
-(6, 2, 4, '2019-04-14'),
-(7, 2, 1, '2019-04-15'),
-(8, 3, 1, '2019-04-16'),
-(9, 3, 6, '2019-04-12'),
-(10, 3, 7, '2019-04-13'),
-(11, 11, 6, '2019-04-14'),
-(12, 2, 40, '2019-04-16');
+INSERT INTO `sensors` (`Number`, `Id`, `Value`, `cdate`, `UserId`) VALUES
+(17, 1, 5, '2019-05-06', 1),
+(18, 1, 123, '2019-05-06', 13),
+(20, 1, 23, '2019-05-12', 1),
+(21, 2, 56, '2019-05-22', 13);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Структура таблицы `users`
 --
 
 CREATE TABLE `users` (
-  `id` int(11) NOT NULL,
+  `UserId` int(11) NOT NULL,
   `username` varchar(50) COLLATE utf8_bin NOT NULL,
   `passcode` varchar(50) COLLATE utf8_bin NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
--- Dumping data for table `users`
+-- Дамп данных таблицы `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `passcode`) VALUES
-(1, 'name', 'password'),
-(5, 'b068931cc450442b63f5b3d276ea4297', '5f4dcc3b5aa765d61d8327deb882cf99');
+INSERT INTO `users` (`UserId`, `username`, `passcode`) VALUES
+(1, 'name', 'name'),
+(13, 'e262762dd466c7586553dbc37d091b82', '202cb962ac59075b964b07152d234b70');
 
 --
--- Indexes for dumped tables
+-- Индексы сохранённых таблиц
 --
 
 --
--- Indexes for table `sensors`
+-- Индексы таблицы `sensors`
 --
 ALTER TABLE `sensors`
-  ADD PRIMARY KEY (`Number`);
+  ADD PRIMARY KEY (`Number`),
+  ADD KEY `UserId` (`UserId`);
 
 --
--- Indexes for table `users`
+-- Индексы таблицы `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`UserId`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT для сохранённых таблиц
 --
 
 --
--- AUTO_INCREMENT for table `sensors`
+-- AUTO_INCREMENT для таблицы `sensors`
 --
 ALTER TABLE `sensors`
-  MODIFY `Number` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `Number` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `UserId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- Ограничения внешнего ключа сохраненных таблиц
+--
+
+--
+-- Ограничения внешнего ключа таблицы `sensors`
+--
+ALTER TABLE `sensors`
+  ADD CONSTRAINT `sensors_ibfk_1` FOREIGN KEY (`UserId`) REFERENCES `users` (`UserId`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

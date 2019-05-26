@@ -30,14 +30,19 @@ html,body{
 #content.container-fluid{
 	
 }
+.hello{
+	padding-bottom: 10px;
+	text-align: center;
+}
 
 #flex-wrap.form-group{
 	display:flex;
 	justify-content:center;
 	flex-wrap:wrap;
 }
+
 .labelforinput{
-	width:130px;
+	width:150px;
 	height:30px;
 	padding-top:2px;
 }
@@ -46,38 +51,44 @@ html,body{
 	width:182px;
 	height:30px;
 }
+
 #nav{
 	display:flex;
 	justify-content:center;
 }
+
 .logrows{
 	display:flex;
 	justify-content:center;
 	margin-bottom:10px;
 	padding-top:10px;
 }
+
 .temp{
-	width:100px;
+	width:150px;
 }
+
 #login{
 	min-height:200px;
 }
+
 .llog{
 	padding-top:0em;
 }
+
 .rows{
 	display:flex;
 	margin-bottom:10px;
 	margin-left:5px;
 	margin-right:5px;
 }
+
 #mytable{
 	display: flex;
 	justify-content: center;
 }
 
 #form.container-fluid{
-	
 	padding-top: 15px;
 	padding-bottom: 15px;
 	border-top: 1px solid grey;
@@ -85,46 +96,47 @@ html,body{
 	margin-bottom: 5px;
 	margin-top: 5px;
 }
+
 #forradio.form-group{
 	display:flex;
 	justify-content:center;
 }
+
 #requestbutton{
 	display:flex;
 	justify-content: center;
 }
+
 .cell{
 	width: 100px;
 	font-size: 15px;
 	text-align: center;
 }
+
 #confirm{
 	width:75px;
 }
+
 #footer.container-fluid{
 	padding-top:20px;
 	text-align: center;
-	
 }
+
 @media screen and (max-device-width: 500px) {
     .cell {
     	font-size: 13px;
     }
 }
 @media screen and (max-device-width: 350px) {
-    .h1 {
-    	font-size: 1.75	em;
+    h1.h1 {
+    	font-size: 25px;
+    }
+    #nav {
+    	display: block;
+    	justify-content: center;
+    }
+    .logbutt{
+    	display: flex;
+    	justify-content: center;
     }
 }
-
-  
-
-
-
-
-
-
-
-
-
-.
