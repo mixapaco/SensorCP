@@ -1,6 +1,6 @@
 <?php 
    session_start();
-   require_once '../connection.php';
+   require_once $_SERVER['DOCUMENT_ROOT'].'/SensorCP/connection.php';
 ?>
 <?php 
 if($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -30,6 +30,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
       }
       else {
          $error = "Your Login Name or Password is invalid";
+         header("location: ../index.php");
       }
    }
 }

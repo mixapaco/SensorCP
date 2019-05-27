@@ -1,4 +1,4 @@
-var ipUrl = "192.168.0.190";
+var ipUrl = "localhost";
 var barGraph;
 var d = new Date();
 
@@ -60,9 +60,14 @@ function getChart() {
     method: "GET",
     success: function(data) 
     {
-      
       data = JSON.parse(data);
+      console.log(data);
       addTable(data);
+
+      for(var i in data)
+      {
+        
+      }
 
       var value = [];
       var dat = [];
@@ -77,7 +82,7 @@ function getChart() {
       var chartdata;
       if(!document.getElementById("rFilW").checked & !document.getElementById("rFilM").checked & 
       !document.getElementById("rFilY").checked){
-        console.log(dat);
+        
         dat.sort();
         chartdata = {
           labels: dat,
