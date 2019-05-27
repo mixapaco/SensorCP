@@ -11,7 +11,7 @@
     else {
         $id=1;
     }
-         $userid=$_SESSION['userId'];
+    $userid=$_SESSION['userId'];
     
     if(!empty($_GET["cdatea"])&!empty($_GET["cdateb"])) {
         $cdatea=$_GET["cdatea"];
