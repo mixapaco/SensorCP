@@ -58,7 +58,7 @@
         }
 
 
-        $query ="SELECT Number, Id, Value, cdate FROM sensors WHERE  id=$id and cdate between '$cdatea' and '$cdateb' ORDER BY cdate";
+        $query ="SELECT Number, Id, Value, cdate FROM sensors WHERE  id=$id and UserId=$userid and cdate between '$cdatea' and '$cdateb' ORDER BY cdate";
         $link = mysqli_connect($host, $user, $password, $database) 
         or die("Ошибка " . mysqli_error($link)); 
         $result = mysqli_query($link, $query) or die("Ошибка " . mysqli_error($link)); 

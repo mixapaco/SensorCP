@@ -87,6 +87,7 @@ html,body{
 	display: flex;
 	justify-content: center; 
 	overflow-y:scroll;
+	height: 231px;
 }
 
 #form.container-fluid{
