@@ -1,9 +1,10 @@
 <?php include 'header.php'; ?>
 <div>
-    <div style="display: flex;
-    justify-content: center;    padding-right: 17px;">
-    <table style="border:1px solid black;
-    ">
+    <div style="
+    display: flex;
+    justify-content: center;    
+    padding-right: 17px;">
+    <table style="border:1px solid black;">
         <thead>
             <tr>
                 <th class="cell">1</th>
