@@ -23,7 +23,9 @@
 			  if(!empty($_SESSION["login_user"])) { 
           $way='log/logout.php';
           echo "<form action='$way'>";
+          echo "<h3>";
       	  echo $_SESSION['login_user'];
+          echo "</h3>";
 				  echo "<button class='btn btn-outline-secondary' type='submit' >logout</button>";
           echo '</form>';
 			  }

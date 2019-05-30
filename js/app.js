@@ -12,7 +12,9 @@ class DateOb{
 $(document).ready(getChart());
 function getChart() {
 
+
   var form=$("#form");
+
   
   ur="Getjson.php";
   $.ajax({
@@ -21,7 +23,6 @@ function getChart() {
     data:form.serialize(),
     success: function(data) 
     {
-      
       data = JSON.parse(data);
 
       addTable(data);
@@ -39,7 +40,7 @@ function getChart() {
       var chartdata;
       if(!document.getElementById("rFilW").checked & !document.getElementById("rFilM").checked & 
       !document.getElementById("rFilY").checked){
-        console.log(dat);
+        
         dat.sort();
         chartdata = {
           labels: dat,
@@ -93,15 +94,7 @@ function getChart() {
           }]
         };
         
-        chartdata.labels = days;//["Sun ","Mon ","Tue ","Wed ","Thu ","Fri ","Sat "];
-        // {
-        //   label: 'Chart2',
-        //   backgroundColor: 'rgba(251,25,102,1)',
-        //   borderColor: 'rgba(200, 200, 200, 0.75)',
-        //   hoverBackgroundColor: 'rgba(200, 200, 200, 1)',
-        //   hoverBorderColor: 'rgba(200, 200, 200, 1)',
-        //   data: value
-        // }
+        chartdata.labels = days;
         barGraph.options = {
           scales: {
             yAxes: [{
@@ -259,6 +252,7 @@ function addTable(data)
 
 function createChartObj(chartdata) {
   var ctx = document.getElementById('mycanvas').getContext('2d');
+  if(undefined===ctx){return;}
   ctx.clearRect(0, 0, ctx.width, ctx.height);
   
   barGraph = new Chart(ctx, {
