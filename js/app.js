@@ -1,4 +1,4 @@
-var ipUrl = "192.168.0.190";
+var ipUrl = "localhost";
 var barGraph;
 var d = new Date();
 
@@ -11,57 +11,19 @@ class DateOb{
 
 $(document).ready(getChart());
 function getChart() {
-  var connectId = document.getElementById("inputrec").value;
-  var connectDateA = document.getElementById("inputdatea").value;
-  var connectDateB = document.getElementById("inputdateb").value;
-  
-  if(document.getElementById("rFilW").checked) {
-		
-		var bufd = new Date(); 
-		bufd.setTime(Date.now()+86400000);
 
-    connectDateB = bufd.getFullYear() + '-' + (bufd.getMonth() + 1) + '-' + (bufd.getDate());
-    bufd.setTime(Date.now());
-    if(bufd.getDay()==0){bufd.setTime(Date.now() - 7 * 86400000);
-    }
-    else{
-      bufd.setTime(Date.now() - bufd.getDay()*86400000);
-    }
-    
-    connectDateA = bufd.getFullYear() + '-' + (bufd.getMonth() + 1) + '-' + bufd.getDate();
-    console.log(connectDateA,connectDateB);
-
-	}
-
-  if(document.getElementById("rFilM").checked) {
-    connectDateB = d.getFullYear() + '-' + (d.getMonth() + 1) + '-31';
-    //var bufd = new Date(); 
-    //bufd.setTime(Date.now()-43800 * 60 * 1000);
-    connectDateA = d.getFullYear() + '-' + (d.getMonth() + 1) + '-01';
-  }
+  var form=$("#form");
   
-  if(document.getElementById("rFilY").checked) {
-    connectDateB = d.getFullYear()+'-12-31';
-    connectDateA = d.getFullYear()+'-01-01';
-  }
-  
-  if(connectId == null) {
-    connectId = 1;
-  }
-  
-  var ur = "http://"+ipUrl+"/SensorCP/GetJson.php?id="+connectId;
-  
-  if(connectDateA != null & connectDateB != null) {
-    ur += "&cdatea=" + connectDateA + "&cdateb=" + connectDateB;
-  }
-  
+  ur="Getjson.php";
   $.ajax({
     url: ur,
     method: "GET",
+    data:form.serialize(),
     success: function(data) 
     {
       
       data = JSON.parse(data);
+
       addTable(data);
 
       var value = [];
@@ -272,6 +234,8 @@ function addTable(data)
   
   var table = document.createElement('TABLE');
   table.border = '1';
+ 
+
   var tableBody = document.createElement('TBODY');
   table.appendChild(tableBody);
 
@@ -366,4 +330,11 @@ function textInputFilter(e) {
   if (alet){
     alert("Wrong input: please enter a-z/A-Z/0-9");
   }
+}
+
+function uncheckIfDate() {
+ var mas = document.getElementsByName("rFilter");
+ for (var i = mas.length - 1; i >= 0; i--) {
+   mas[i].checked=false;
+ }
 }

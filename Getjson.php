@@ -24,6 +24,44 @@
         or die("Ошибка " . mysqli_error($link)); 
         $result = mysqli_query($link, $query) or die("Ошибка " . mysqli_error($link));  
     }
+    if(!empty($_GET["rFilter"]))
+    {
+        if($_GET["rFilter"]=="Week")
+        {
+           $cdateb=date('Y\-m\-d'); //today
+
+           $timmon = time() - ((int)(date("N")-1)*86400);
+            
+           $cdatea=date('Y\-m\-d',$timmon);//monday
+        }
+        if($_GET["rFilter"]=="Month")
+        {
+           $cdateb=date('Y\-m\-d'); //today
+
+           $timmon = time() - ((int)(date("d")-1)*86400);
+            
+           $cdatea=date('Y\-m\-d',$timmon);//monday
+
+        }
+        if($_GET["rFilter"]=="Year")
+        {
+           $cdatea=date('Y')."-01-01"; //today
+
+           $timmon = time() - ((int)(date("d")-1)*86400);
+            
+           $cdateb=date('Y')."-12-31";//monday
+
+        }
+
+
+        $query ="SELECT Number, Id, Value, cdate FROM sensors WHERE  id=$id and cdate between '$cdatea' and '$cdateb' ORDER BY cdate";
+        $link = mysqli_connect($host, $user, $password, $database) 
+        or die("Ошибка " . mysqli_error($link)); 
+        $result = mysqli_query($link, $query) or die("Ошибка " . mysqli_error($link)); 
+
+
+    
+    }
 
     $data[]=array();
     if($result) {

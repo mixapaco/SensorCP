@@ -85,7 +85,8 @@ html,body{
 
 #mytable{
 	display: flex;
-	justify-content: center;
+	justify-content: center; 
+	overflow-y:scroll;
 }
 
 #form.container-fluid{
