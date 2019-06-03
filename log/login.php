@@ -4,8 +4,7 @@
 ?>
 <?php 
 if($_SERVER["REQUEST_METHOD"] == "POST") {
-   if(!empty($_POST["username"]) & !empty($_POST["password"]))
-   {
+   if(!empty($_POST["username"]) & !empty($_POST["password"])) {
       $db = mysqli_connect($host, $user, $password, $database) or die("Ошибка " . mysqli_error($link));
       
       $myusername = mysqli_real_escape_string($db,$_POST['username']);
@@ -58,5 +57,3 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 		</div>
 	</div>
 </form>
-
-<?php  ?>

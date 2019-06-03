@@ -7,22 +7,19 @@
     <table style="border:1px solid black;">
         <thead>
             <tr>
-                <th class="cell">1</th>
-                <th class="cell">2</th>
-                <th class="cell">3</th>
-                <th class="cell">4</th>
+                <th class="cell">Id Запиту</th>
+                <th class="cell">Id Датчика</th>
+                <th class="cell">К-сть</th>
+                <th class="cell">Дата</th>
             </tr>
         </thead>
     </table>
     </div>
-
-<div id="mytable" >
-</div>
+    <div id="mytable"></div>
 </div>
 <div id="chart-conteiner">
     <canvas id="mycanvas"></canvas>
 </div>
-
 <form id="form" class="container-fluid" action="Getjson.php">
     <div id="flex-wrap" class="form-group">
 		<div class="rows">
@@ -30,7 +27,7 @@
 				<label for="inputrec">Id</label>
 			</div>
 			<div>
-				<input id="inputrec" class="form-control same-input" type="text" placeholder = "Enter your id">
+				<input id="inputrec" class="form-control same-input" type="text" name="id" placeholder = "Enter your id">
 			</div>
 		</div>
 		<div class="rows">
@@ -50,8 +47,7 @@
 			</div>
 		</div>
 	</div>
-
-	<div id="forradio" class="form-group">
+    <div id="forradio" class="form-group">
 		<div class="form-check form-check-inline">
 			<input id="rFilW" class="form-check-input" type="radio" name="rFilter" value="Week">
 			<label class="form-check-label" for="rFilW">Week</label>

@@ -1,6 +1,5 @@
 <?php 
-
- require_once $_SERVER['DOCUMENT_ROOT'].'/SensorCP/connection.php';
+   require_once $_SERVER['DOCUMENT_ROOT'].'/SensorCP/connection.php';
 ?>
 <?php 
 if($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -35,7 +34,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
    }
 }
 ?>
-
 <form action="log/registrate.php" method="post">
    <div id="loginform" class="form-group">
       <div class="logrows">
@@ -67,4 +65,3 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
       </div>
    </div>
 </form>
-
