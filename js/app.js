@@ -50,21 +50,52 @@ function getChart(){
       
       if(document.getElementById("rFilW").checked){
         var dataobject = [];
+        var uniq = dat
+        .map((name) => {
+        return {
+        count: 1,
+        name: name
+        }
+        })
+        .reduce((a, b) => {
+        a[b.name] = (a[b.name] || 0) + b.count
+        return a
+        }, {})
+
+        var duplicates = Object.keys(uniq).filter((a) => uniq[a] > 1)
         
-        for (var i = dat.length - 1; i >= 0; i--){
+        for (var i = 0;i <= dat.length - 1; i++) {
           dataobject[i] = {
             dateprop: dat.pop(),
             valprop : value.pop(),
           };
         }
+        var bufdataobject=[];
+        for (var i = 0;i <= duplicates.length - 1; i++) {
+          bufdataobject[i] = {
+            dateprop: 0,
+            valprop : 0,
+          };
+        }
+
+        for (var i = 0; i <= duplicates.length - 1; i++){
+          bufdataobject[i].dateprop = duplicates[i];
+
+          for (var j = 0; j <= dataobject.length - 1; j++) {
         
+            if (dataobject[j].dateprop == duplicates[i])
+            {
+              bufdataobject[i].valprop += Number(dataobject[j].valprop);
+            }
+          }
+        }
+        dataobject=bufdataobject;
         var bufd = new Date();
         var datTemp = [];
         
         for (var i = 0 ; i <= dataobject.length - 1; i++){
           bufd.setFullYear(dataobject[i].dateprop.substr(0,4),dataobject[i].dateprop.substr(5,2)-1,
           dataobject[i].dateprop.substr(8,2));
-          
           if (bufd.getDay() == 0){
             datTemp[6] = dataobject[i].valprop;
           }
