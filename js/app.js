@@ -1,5 +1,6 @@
-var ipUrl = "192.168.0.182";
+var ipUrl = "192.168.0.104";
 var barGraph;
+var table; 
 var d = new Date();
 
 class DateOb{
@@ -18,6 +19,8 @@ function getChart(){
     data:form.serialize(),
     success: function(data){
       data = JSON.parse(data);
+      data.shift();
+      console.log(data);
       addTable(data);
       var value = [];
       var dat = [];
@@ -238,34 +241,17 @@ function getChart(){
   });
 }
 
-function addTable(data){
+function addTable(cdata){
   var myTableDiv = document.getElementById("mytable");
+    console.log(cdata);
+    table = new Tabulator("#mytabl", {
+    data:cdata,
+    layout:"fitColumns",
+    height:"311px",
+    width:"100px",
+    autoColumns:true,
+});
   
-  if(myTableDiv.children[0] != undefined){
-    myTableDiv.children[0].remove()
-  }
-  
-  var table = document.createElement('TABLE');
-  table.border = '1';
-  var tableBody = document.createElement('TBODY');
-  table.appendChild(tableBody);
-  
-  for(var i in data){
-    if(data[i].Id === undefined){
-      continue;
-    }
-    
-    var tr = document.createElement('TR');
-    tableBody.appendChild(tr);
-    
-    for(var j in data[i]){
-      var td = document.createElement('TD');
-      td.setAttribute('class','cell');
-      td.appendChild(document.createTextNode(data[i][j]));      
-      tr.appendChild(td);
-    }
-  }
-  myTableDiv.appendChild(table);
 }
 
 function createChartObj(chartdata) {

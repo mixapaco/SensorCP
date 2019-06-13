@@ -1,22 +1,6 @@
 <?php include 'header.php'; ?>
-<div>
-    <div style="
-    display: flex;
-    justify-content: center;    
-    padding-right: 17px;">
-    <table style="border:1px solid black;">
-        <thead>
-            <tr>
-                <th class="cell">Id Запиту</th>
-                <th class="cell">Id Датчика</th>
-                <th class="cell">К-сть</th>
-                <th class="cell">Дата</th>
-            </tr>
-        </thead>
-    </table>
-    </div>
-    <div id="mytable"></div>
-</div>
+
+ <div id="mytabl"></div>
 <div id="chart-conteiner">
     <canvas id="mycanvas"></canvas>
 </div>
